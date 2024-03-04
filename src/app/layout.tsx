@@ -12,7 +12,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body>
+        <div className="p-6">
+          {children}  
+        </div>
+      </body>
     </html>
   );
 }
