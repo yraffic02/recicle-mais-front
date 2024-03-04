@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <main>
-      teste
-    </main>
+    <h1 className="font-workSans font-title text-title text-verdeFloresta">
+      work sans
+    </h1>
   );
 }
