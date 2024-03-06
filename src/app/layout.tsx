@@ -1,5 +1,13 @@
+import { UserProvider } from "@/store/context/contextUser";
 import "@/style/tailwind.css";
 import type { Metadata } from "next";
+import { Work_Sans } from 'next/font/google';
+
+const WorkSans = Work_Sans({
+  subsets: ['latin'],
+  weight: ["400", "600", "500"],
+  variable: '--font-WorkSans',
+});
 
 export const metadata: Metadata = {
   title: "Recicle Mais",
@@ -13,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
-        <div className="p-6">
-          {children}  
-        </div>
+        <UserProvider>
+          <div className={`${WorkSans.variable} p-6`}>
+            {children}
+          </div>
+        </UserProvider>
       </body>
     </html>
   );
