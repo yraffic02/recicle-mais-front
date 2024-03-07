@@ -1,7 +1,12 @@
+import { Header } from "@/components/Header";
+
 export default function PageRegister(){
     return(
-        <div>
-            Pagina de cadastro
-        </div>
+        <main>
+            <Header>
+                <h1>Cadastro</h1>
+                <div></div>
+            </Header>
+        </main>
     )
 }
