@@ -31,8 +31,8 @@ export default function PageRegister(){
                 >
                     <Image 
                         src='/icons/iconeGoogle.svg'
-                        height={10}
-                        width={10}
+                        height={24}
+                        width={24}
                         alt="icone Google"
                     />
                     <p>Cadastrar com Google</p>
@@ -42,8 +42,8 @@ export default function PageRegister(){
                 >   
                     <Image 
                         src='/icons/iconeFacebook.svg'
-                        height={10}
-                        width={10}
+                        height={24}
+                        width={24}
                         alt="icone Google"
                     />
                     <p>Cadastrar com Facebook</p>
