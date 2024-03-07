@@ -1,11 +1,13 @@
 import { ButtonHTMLAttributes, ReactNode } from "react"
 
+type ButtonType = 'primary' | 'secondary';
+
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     children: ReactNode
-    typeButton?: string
+    typeButton: ButtonType
 }
 
-export const Button = ({children, typeButton = 'primary', ...props}: ButtonProps) =>{
+export const Button = ({children, typeButton, ...props}: ButtonProps) =>{
     
     if(typeButton === "secondary"){
         return(
