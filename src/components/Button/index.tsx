@@ -17,7 +17,7 @@ export const Button = ({children, typeButton = 'primary', ...props}: ButtonProps
             </button>
         )
     }
-
+    
     return(
         <button
             {...props}
