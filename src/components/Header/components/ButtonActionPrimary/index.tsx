@@ -1,7 +1,9 @@
 import Image from "next/image"
+import { ButtonHTMLAttributes } from "react"
 
-export const PrimaryActionButton = () =>{
-    
+type PrimaryActionButtonProps = ButtonHTMLAttributes<HTMLButtonElement> 
+
+export const PrimaryActionButton = ({...props}: PrimaryActionButtonProps) =>{
     return(
         <button>
             <Image 
