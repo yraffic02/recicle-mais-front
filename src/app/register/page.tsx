@@ -6,7 +6,11 @@ export default function PageRegister(){
     return(
         <main>
             <Header>
-                <h1>Cadastro</h1>
+                <h1
+                    className="font-medium"
+                >
+                    Cadastro
+                </h1>
                 <div></div>
             </Header>
 
@@ -25,12 +29,24 @@ export default function PageRegister(){
                 <Button
                     typeButton="secondary"
                 >
-                    Cadastrar com Google
+                    <Image 
+                        src='/icons/iconeGoogle.svg'
+                        height={10}
+                        width={10}
+                        alt="icone Google"
+                    />
+                    <p>Cadastrar com Google</p>
                 </Button>
                 <Button
                     typeButton="secondary"
-                >
-                    Cadastrar com Facebook
+                >   
+                    <Image 
+                        src='/icons/iconeFacebook.svg'
+                        height={10}
+                        width={10}
+                        alt="icone Google"
+                    />
+                    <p>Cadastrar com Facebook</p>
                 </Button>
             </div>
                 
