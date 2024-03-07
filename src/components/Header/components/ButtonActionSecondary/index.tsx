@@ -1,16 +1,17 @@
 import Image from "next/image"
+import { ButtonHTMLAttributes } from "react"
 
-type SecondaryActionButtonProps = {
-    srcIcon: string,
-    
+type SecondaryActionButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+    srcIcon: string,   
 }
 
-export const SecondaryActionButton = () =>{
-    
+export const SecondaryActionButton = ({ srcIcon, ...props}: SecondaryActionButtonProps) =>{
     return(
-        <button>
+        <button
+            {...props}
+        >
             <Image 
-                src='/icons/arrowLeft.svg'
+                src={srcIcon}
                 width={11}
                 height={11}
                 alt="seta para esquerda - voltar"
