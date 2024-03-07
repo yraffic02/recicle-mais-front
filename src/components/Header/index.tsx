@@ -1,9 +1,8 @@
 'use client'
 
-import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { ReactNode } from "react"
-import { ButtonHeader } from "./components/ButtonHeader"
+import { PrimaryActionButton } from "./components/ButtonActionPrimary"
 
 type HeaderProps = {
     children: ReactNode
@@ -16,7 +15,7 @@ export const Header = ({children}: HeaderProps) =>{
 
     return(
         <header className="w-full py-3 px-[0.625rem] flex items-center justify-between">
-            <ButtonHeader />
+            <PrimaryActionButton />
             {children}
         </header>
     )
