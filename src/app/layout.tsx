@@ -13,7 +13,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
-        <div className="p-6">
+        <div className="p-6 font-workSans">
           {children}  
         </div>
       </body>
