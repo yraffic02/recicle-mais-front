@@ -13,7 +13,7 @@ export const Button = ({children, typeButton, ...props}: ButtonProps) =>{
         return(
             <button
                 {...props}
-                className="w-full p-3 rounded-[2rem] hover:opacity-85 bg-cinzaClaroSec text-cinzaClaro font-medium text-base"
+                className="w-full flex items-center justify-center gap-2 p-3 rounded-[2rem] hover:opacity-85 bg-cinzaClaroSec text-cinzaClaro font-medium text-base"
             >
                 {children}
             </button>
@@ -23,7 +23,7 @@ export const Button = ({children, typeButton, ...props}: ButtonProps) =>{
     return(
         <button
             {...props}
-            className="w-full p-3 rounded-[2rem] hover:opacity-85 bg-verdeFloresta text-white font-medium text-base"
+            className="w-full flex items-center justify-center gap-2 p-3 rounded-[2rem] hover:opacity-85 bg-verdeFloresta text-white font-medium text-base"
         >
             {children}
         </button>
