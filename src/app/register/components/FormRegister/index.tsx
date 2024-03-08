@@ -2,7 +2,7 @@
 import { Button } from "@/components/Button"
 import { Input } from "@/components/Input"
 import { Label } from "@/components/Label"
-import { useFormRegister } from "@/store/hooks/useFormRegister"
+import { useFormRegister } from "@/hooks/useFormRegister"
 import Image from "next/image"
 import Link from "next/link"
 import { AvatarsForm } from "../AvatarsForm"
