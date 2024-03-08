@@ -118,7 +118,7 @@ export const FormRegister = () =>{
                                 htmlFor="terms"
                                 className="font-semibold text-sm"
                             >
-                                Aceito os termos e políticas de privacidade
+                                Aceito os <b className="underline">termos</b> e <b className="underline">políticas de privacidade</b>
                             </label>
                         </div>  
                     </div> 
