@@ -14,7 +14,7 @@ export  const AvatarsForm = () => {
                 alt="avatar"
             />
             
-            <div className="flex flex-wrap gap-2 w-full">
+            <div className="grid grid-cols-5 gap-2 w-full">
                 {
                     dataAvatars.map((avatar, index)=>{
                         return (
