@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function LoginPage() {
   return (
-    <div className="flex h-screen justify-start items-center flex-col gap-6 ">
+    <div className="flex h-screen justify-start items-center flex-col gap-6 p-6">
       <div className="w-full h-full flex flex-col justify-start items-center mb-9 mt-24 ">
         <Image
           className="mb-9"

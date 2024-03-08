@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body>
         <UserProvider>
-          <div className={`${WorkSans.variable} p-6`}>
+          <div className={`${WorkSans.variable}`}>
             {children}
           </div>
         </UserProvider>

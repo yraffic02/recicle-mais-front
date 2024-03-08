@@ -2,14 +2,14 @@
 import Bullet from "@/components/bullet";
 import { Buttonsm } from "@/components/buttonsm";
 import { LinkButton } from "@/components/linkButton";
-import { IUserContext, useMenuContext } from "@/store/context/contextUser";
+import { IUserContext, useUserContext } from "@/context/contextUser";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 
 export default function LandingPage() {
   const router = useRouter();
-  const { currentPage, setCurrentPage } = useMenuContext() as IUserContext;
+  const { currentPage, setCurrentPage } = useUserContext() as IUserContext;
   console.log(currentPage)
 
   function handelPage(page: string) {
