@@ -5,6 +5,7 @@ import { Label } from "@/components/Label"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
+import { AvatarsForm } from "../AvatarsForm"
 
 export const FormRegister = () =>{
     const [formState, setFormState] = useState(false)
@@ -100,7 +101,7 @@ export const FormRegister = () =>{
 
                 {
                     formState && 
-                    <h1>avatares</h1>
+                    <AvatarsForm />
                 }
 
                 {
