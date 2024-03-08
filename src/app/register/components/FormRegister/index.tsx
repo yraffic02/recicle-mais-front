@@ -6,47 +6,46 @@ import Link from "next/link"
 
 export const FormRegister = () =>{
     return(
-        <>
-            <form className="media-md-h">
-                <section className="flex flex-col items-center justify-center gap-4">
+        <div className="media-md-h">
+            <section className="flex flex-col items-center justify-center gap-4">
+                <Image 
+                    src='/logo/logo.svg'
+                    height={24}
+                    width={115}
+                    alt="logo recicle mais"
+                />
+
+                <h2 className="font-semibold text-cinzaEscuro">
+                    Faça parte deste movimento, 
+                    e ajude o mundo a se tornar cada vez mais limpo 
+                    e sustentável!
+                </h2>
+
+                <Button
+                    typeButton="secondary"
+                >
                     <Image 
-                        src='/logo/logo.svg'
+                        src='/icons/iconeGoogle.svg'
                         height={24}
-                        width={115}
-                        alt="logo recicle mais"
+                        width={24}
+                        alt="icone Google"
                     />
+                    <p>Cadastrar com Google</p>
+                </Button>
 
-                    <h2 className="font-semibold text-cinzaEscuro">
-                        Faça parte deste movimento, 
-                        e ajude o mundo a se tornar cada vez mais limpo 
-                        e sustentável!
-                    </h2>
-
-                    <Button
-                        typeButton="secondary"
-                    >
-                        <Image 
-                            src='/icons/iconeGoogle.svg'
-                            height={24}
-                            width={24}
-                            alt="icone Google"
-                        />
-                        <p>Cadastrar com Google</p>
-                    </Button>
-
-                    <Button
-                        typeButton="secondary"
-                    >   
-                        <Image 
-                            src='/icons/iconeFacebook.svg'
-                            height={24}
-                            width={24}
-                            alt="icone Google"
-                        />
-                        <p>Cadastrar com Facebook</p>
-                    </Button>
-                </section>
-
+                <Button
+                    typeButton="secondary"
+                >   
+                    <Image 
+                        src='/icons/iconeFacebook.svg'
+                        height={24}
+                        width={24}
+                        alt="icone Google"
+                    />
+                    <p>Cadastrar com Facebook</p>
+                </Button>
+            </section>
+            <form>
                 <div className="w-full pt-5">
                     <h1 className="font-semibold text-cinzaEscuro text-center">
                         Ou
@@ -68,7 +67,7 @@ export const FormRegister = () =>{
                         <Input id="confirm" placeholder="Digite novamente sua senha" />
                 </section>
             </form>
-            <div className="flex flex-col items-center justify-center gap-1 w-full absolute bottom-0">
+            <div className="flex flex-col items-center justify-center gap-1 bg-white w-full absolute bottom-0">
                 <Button
                     typeButton="primary"
                 >
@@ -84,6 +83,6 @@ export const FormRegister = () =>{
                     </Link>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
