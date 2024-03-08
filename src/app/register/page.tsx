@@ -1,21 +1,12 @@
 import { Button } from "@/components/Button";
-import { Header } from "@/components/Header";
 import { Input } from "@/components/Input";
 import { Label } from "@/components/Label";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function PageRegister(){
     return(
-        <main>
-            <Header>
-                <h1
-                    className="font-medium"
-                >
-                    Cadastro
-                </h1>
-                <div></div>
-            </Header>
-
+        <main className="flex flex-col justify-between h-[570px] overflow-auto">
             <section className="flex flex-col items-center justify-center gap-4">
 
                 <Image 
@@ -63,17 +54,33 @@ export default function PageRegister(){
             </div> 
 
             <section>
-                <form>
-                    <Label
-                        labelHtmlFor="name"
-                    >
-                        Nome
-                    </Label>
-                    <Input 
-                        id="name"
-                        placeholder="Digite aqui o seu nome"
-                    />
+                <form className="flex flex-col items-start gap-2 mb-3">
+                    <Label labelHtmlFor="name">Nome</Label>
+                    <Input id="name" placeholder="Digite aqui o seu nome" />
+
+                    <Label labelHtmlFor="email">Entrar com outro e-mail</Label>
+                    <Input id="email" placeholder="Digite seu email" />
+
+                    <Label labelHtmlFor="password">Senha</Label>
+                    <Input id="password" placeholder="Digite uma senha" />
+
+                    <Label labelHtmlFor="confirm">Confirmar senha</Label>
+                    <Input id="confirm" placeholder="Digite novamente sua senha" />
+
                 </form>
+                <Button
+                    typeButton="primary"
+                >
+                    Continuar
+                </Button>
+                <div className="flex items-center justify-center">
+                    <p>Já possui uma conta?</p>
+                    <Link 
+                        href='/login'
+                    >
+                        Entrar
+                    </Link>
+                </div>
             </section>
         </main>
     )
