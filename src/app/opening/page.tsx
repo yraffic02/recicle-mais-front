@@ -116,7 +116,7 @@ export default function LandingPage() {
             Visitante
           </LinkButton.Text>
         </LinkButton>
-        <Buttonsm color="verdeFloresta" onClick={() => handelPage(currentPage)}>
+        <Buttonsm size={36} onClick={() => handelPage(currentPage)}>
           <Buttonsm.Text>
             Começar
           </Buttonsm.Text>

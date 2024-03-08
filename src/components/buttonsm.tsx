@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 
 type ButtonProps = {
   children: ReactNode;
-  color: string;
+  size: number | string;
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 type ButtonTextProps = {
@@ -10,10 +10,10 @@ type ButtonTextProps = {
 }
 
 
-function Buttonsm({ children, color, ...rest }: ButtonProps) {
+function Buttonsm({ children, size, ...rest }: ButtonProps) {
   return (
     <button
-      className={`w-36 h-12 bg-${color} rounded-3xl flex justify-center items-center`}
+      className={`w-${size} w- h-12 bg-verdeFloresta rounded-3xl flex justify-center items-center`}
       {...rest}
     >
       {children}
@@ -25,7 +25,7 @@ function Buttonsm({ children, color, ...rest }: ButtonProps) {
 function ButtonText({ children }: ButtonTextProps) {
 
   return (
-    <span className="text-body font-workSans font-bold leading-6 text-white">
+    <span className="text-body font-workSans font-body leading-6 text-white">
       {children}
     </span>
   )

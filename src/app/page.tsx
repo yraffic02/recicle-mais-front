@@ -9,7 +9,7 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       router.push('/opening')
-    }, 5000)
+    }, 3000)
   }, [])
 
 

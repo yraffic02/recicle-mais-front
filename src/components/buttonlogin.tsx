@@ -37,7 +37,7 @@ function ButtonText({ children }: ButtonTextProps) {
 
 function ButtonIcon({ children }: ButtonLoginIconProps) {
   return (
-    <div className="w-6 h-6">
+    <div className="w-6 h-6 mr-2">
       {children}
     </div>
   )

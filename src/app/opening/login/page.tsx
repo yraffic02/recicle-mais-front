@@ -1,10 +1,15 @@
+"use client";
+
 import { ButtonLogin } from "@/components/buttonlogin";
+import { Buttonsm } from "@/components/buttonsm";
+import { InputPageLogin } from "@/components/inputPageLogin";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function LoginPage() {
   return (
     <div className="flex h-screen justify-start items-center flex-col gap-6 ">
-      <div className="w-full h-full flex flex-col justify-center items-center ">
+      <div className="w-full h-full flex flex-col justify-start items-center mb-9 mt-24 ">
         <Image
           className="mb-9"
           src={'/logo/logo.svg'}
@@ -46,16 +51,36 @@ export default function LoginPage() {
             </ButtonLogin.Text>
           </ButtonLogin>
         </div>
-        <div className="w-full flex flex-col justify-center items-center bg-blue-600  gap-2">
-          <strong className="bg-orange-400 w-full h-6">1</strong>
-          <strong className="bg-green-500 w-full h-12 rounded-3xl">1</strong>
-          <strong className="bg-pink-500 w-full h-6">1</strong>
-          <strong className="bg-teal-300 w-full h-12 rounded-3xl">1</strong>
+        <div className="w-full flex flex-col justify-center items-center gap-2">
+          <InputPageLogin
+            label="E-mail"
+            name="email"
+            placeholder="Digite seu e-mail"
+            type="text"
+          />
+          <InputPageLogin
+            label="Senha"
+            name="senha"
+            placeholder="Digite sua senha"
+            type="password"
+          />
+          <div className="w-full flex justify-end items-end mt-3 mb-9">
+            <strong className="text-body font-body font-workSans text leading-6 text-verdeFloresta">
+              Esqueci minha senha
+            </strong>
+          </div>
         </div>
       </div>
 
-      <div className="w-full h-28 flex justify-center items-center bg-purple-600">
-        footer
+      <div className="w-full h-full flex flex-col justify-center items-center gap-6">
+        <Buttonsm size={"full"}>
+          <Buttonsm.Text>
+            Entrar
+          </Buttonsm.Text>
+        </Buttonsm>
+        <span className="text-body font-body font-workSans leading-6 text-black">
+          Não tem conta ? <Link className="text-verdeFloresta cursor-pointer" href="/">Cadastre-se</Link>
+        </span>
       </div>
     </div>
   )
