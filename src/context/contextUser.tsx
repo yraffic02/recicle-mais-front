@@ -29,4 +29,4 @@ export function UserProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export const useMenuContext = () => useContext(UserContext);
+export const useUserContext = () => useContext(UserContext);
