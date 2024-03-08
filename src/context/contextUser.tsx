@@ -24,4 +24,4 @@ export function UserProvider({ children }: IUserProps) {
   );
 }
 
-export const useMenuContext = () => useContext(UserContext);
+export const useUserContext = () => useContext(UserContext);
