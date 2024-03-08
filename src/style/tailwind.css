@@ -7,3 +7,10 @@
 body{
     overflow: hidden;
 }
+
+@media (max-height: 679px) {
+    .media-md-h {
+        max-height: 570px;
+        overflow-y: auto;
+    }
+}
