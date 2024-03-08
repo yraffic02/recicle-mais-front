@@ -1,4 +1,4 @@
-import { UserProvider } from "@/store/context/contextUser";
+import { UserProvider } from "@/context/contextUser";
 import "@/style/tailwind.css";
 import type { Metadata } from "next";
 import { Work_Sans } from 'next/font/google';
@@ -26,6 +26,7 @@ export default function RootLayout({
             {children}
           </div>
         </UserProvider>
+
       </body>
     </html>
   );
