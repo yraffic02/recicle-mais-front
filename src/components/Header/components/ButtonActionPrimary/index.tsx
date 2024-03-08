@@ -1,11 +1,18 @@
+'use client'
 import Image from "next/image"
-import { ButtonHTMLAttributes } from "react"
+import { useRouter } from "next/navigation"
 
-type PrimaryActionButtonProps = ButtonHTMLAttributes<HTMLButtonElement> 
+export const PrimaryActionButton = () =>{
+    const router = useRouter()
 
-export const PrimaryActionButton = ({...props}: PrimaryActionButtonProps) =>{
+    const handleBack = () =>{
+        router.back()
+    }
+   
     return(
-        <button>
+        <button
+            onClick={handleBack}
+        >
             <Image 
                 src='/icons/arrowLeft.svg'
                 width={11}
