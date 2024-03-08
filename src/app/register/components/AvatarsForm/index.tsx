@@ -1,11 +1,14 @@
 import { dataAvatars } from "@/constants/avatarsData"
 import Image from "next/image"
+import { useState } from "react";
 
-export  const AvatarsForm = () =>{
+export  const AvatarsForm = () => {
+    const [selectedAvatar, setSelectedAvatar] = useState(dataAvatars[0]);
+    
     return(
         <div className="flex flex-col items-center pt-7 gap-8">
             <Image 
-                src='/avatar/avatar-profile01.svg'
+                src={`/avatar/${selectedAvatar}`}
                 height={180}
                 width={180}
                 alt="avatar"
@@ -21,6 +24,7 @@ export  const AvatarsForm = () =>{
                                 height={59}
                                 width={59}
                                 alt="avatar"
+                                onClick={() => setSelectedAvatar(avatar)}
                             />
                         )
                     })
