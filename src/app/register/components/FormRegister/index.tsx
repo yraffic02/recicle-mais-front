@@ -2,17 +2,13 @@
 import { Button } from "@/components/Button"
 import { Input } from "@/components/Input"
 import { Label } from "@/components/Label"
+import { useFormRegister } from "@/store/hooks/useFormRegister"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
 import { AvatarsForm } from "../AvatarsForm"
 
 export const FormRegister = () =>{
-    const [formState, setFormState] = useState(false)
-
-    const handleFormState = () =>{
-        setFormState(!formState)
-    }
+    const { formState, handleFormState } = useFormRegister()
 
     return(
         <div className="media-md-h">
