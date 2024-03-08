@@ -12,7 +12,7 @@ export default function PageRegister(){
                 <section className="flex flex-col items-center justify-center gap-4">
 
                     <Image 
-                        src='/logo/Logo.svg'
+                        src='/logo/logo.svg'
                         height={24}
                         width={115}
                         alt="logo recicle mais"
