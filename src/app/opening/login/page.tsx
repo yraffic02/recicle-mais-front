@@ -79,7 +79,7 @@ export default function LoginPage() {
           </Buttonsm.Text>
         </Buttonsm>
         <span className="text-body font-body font-workSans leading-6 text-black">
-          Não tem conta ? <Link className="text-verdeFloresta cursor-pointer" href="/">Cadastre-se</Link>
+          Não tem conta ? <Link className="text-verdeFloresta cursor-pointer" href="/register">Cadastre-se</Link>
         </span>
       </div>
     </div>
