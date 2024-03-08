@@ -6,9 +6,9 @@ import Link from "next/link"
 
 export const FormRegister = () =>{
     return(
-        <form className="media-md-h">
+        <>
+            <form className="media-md-h">
                 <section className="flex flex-col items-center justify-center gap-4">
-
                     <Image 
                         src='/logo/logo.svg'
                         height={24}
@@ -16,7 +16,7 @@ export const FormRegister = () =>{
                         alt="logo recicle mais"
                     />
 
-                    <h2 className="font-workSans font-semibold text-cinzaEscuro">
+                    <h2 className="font-semibold text-cinzaEscuro">
                         Faça parte deste movimento, 
                         e ajude o mundo a se tornar cada vez mais limpo 
                         e sustentável!
@@ -67,21 +67,23 @@ export const FormRegister = () =>{
                         <Label labelHtmlFor="confirm">Confirmar senha</Label>
                         <Input id="confirm" placeholder="Digite novamente sua senha" />
                 </section>
-                <div className="flex flex-col items-center justify-center gap-1 w-full bg-white absolute bottom-0">
-                    <Button
-                        typeButton="primary"
-                    >
-                        Continuar
-                    </Button>
-                    <div className="flex items-center justify-center">
-                        <p>Já possui uma conta?</p>
-                        <Link 
-                            href='/opening/login'
-                        >
-                            Entrar
-                        </Link>
-                    </div>
-                </div>
             </form>
+            <div className="flex flex-col items-center justify-center gap-1 w-full absolute bottom-0">
+                <Button
+                    typeButton="primary"
+                >
+                    Continuar
+                </Button>
+                <div className="flex items-center justify-center gap-1">
+                    <p className="font-semibold">Já possui uma conta?</p>
+                    <Link 
+                        href='/opening/login'
+                        className="font-semibold text-verdeFloresta  underline hover:underline"
+                    >
+                        Entrar
+                    </Link>
+                </div>
+            </div>
+        </>
     )
 }
