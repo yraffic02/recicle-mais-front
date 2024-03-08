@@ -3,22 +3,27 @@ import {
   ReactNode,
   createContext,
   useContext,
+  useState,
 } from "react";
 
 interface IUserProps {
   children: ReactNode;
 }
 
-interface IUserContext {}
+export interface IUserContext {
+  teste: string;
+  currentPage: string;
+  setCurrentPage: (currentPage: string) => void;
+}
 
-export const UserContext = createContext<IUserContext>({} as IUserContext);
+export const UserContext = createContext<any>(undefined);
 
-export function UserProvider({ children }: IUserProps) {
+export function UserProvider({ children }: { children: ReactNode }) {
 
-  const valuesContext: IUserContext = {};
+  let [currentPage, setCurrentPage] = useState<string>("page1");
 
   return (
-    <UserContext.Provider value={valuesContext}>
+    <UserContext.Provider value={{ setCurrentPage, currentPage }}>
       {children}
     </UserContext.Provider>
   );

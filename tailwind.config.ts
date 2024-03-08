@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        workSans: ["Work Sans", "sans-serif"],
+        workSans: ["var(--font-WorkSans)"],
       },
       fontWeight: {
         title: "600",
@@ -38,8 +38,9 @@ const config: Config = {
         "laranjaAtencao": "#F1821B",
         "verdeSucesso": "#7ECB2A",
       },
+
       plugins: [],
     },
-  }
+  },
 }
 export default config;
