@@ -8,7 +8,7 @@ export default function Home() {
   const router = useRouter();
   useEffect(() => {
     setTimeout(() => {
-      router.push('/login')
+      router.push('/opening')
     }, 5000)
   }, [])
 

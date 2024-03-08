@@ -38,6 +38,7 @@ const config: Config = {
         "laranjaAtencao": "#F1821B",
         "verdeSucesso": "#7ECB2A",
       },
+
       plugins: [],
     },
   },
