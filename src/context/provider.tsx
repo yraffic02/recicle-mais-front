@@ -5,7 +5,7 @@ interface ProviderProps {
     children: ReactNode
 }
 
-export default function ProvidersMenu({children}: ProviderProps){
+export default function Providers({children}: ProviderProps){
     return (
         <UserProvider>
             {children}
