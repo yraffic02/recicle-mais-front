@@ -2,8 +2,7 @@
 import {
   ReactNode,
   createContext,
-  useContext,
-  useState,
+  useContext
 } from "react";
 
 interface IUserProps {
@@ -11,19 +10,16 @@ interface IUserProps {
 }
 
 export interface IUserContext {
-  teste: string;
-  currentPage: string;
-  setCurrentPage: (currentPage: string) => void;
+
 }
 
-export const UserContext = createContext<any>(undefined);
+export const UserContext = createContext<IUserContext | undefined>(undefined);
 
-export function UserProvider({ children }: { children: ReactNode }) {
+export function UserProvider({ children }: IUserProps) {
 
-  let [currentPage, setCurrentPage] = useState<string>("page1");
 
   return (
-    <UserContext.Provider value={{ setCurrentPage, currentPage }}>
+    <UserContext.Provider value={''}>
       {children}
     </UserContext.Provider>
   );

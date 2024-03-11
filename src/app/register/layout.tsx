@@ -12,17 +12,17 @@ export default function Layout({
 }>) {
   return (
     <div className="p-6">
-        <Header>
-                <h1
-                    className="font-medium"
-                >
-                    Cadastro
-                </h1>
-                <div></div>
-        </Header>
-        <div>
-            {children}  
-        </div>
+      <Header>
+        <h1
+          className="font-medium"
+        >
+          Cadastro
+        </h1>
+        <div></div>
+      </Header>
+      <div>
+        {children}
+      </div>
     </div>
   );
 }

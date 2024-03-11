@@ -3,10 +3,12 @@
 import { ButtonLogin } from "@/components/buttonlogin";
 import { Buttonsm } from "@/components/buttonsm";
 import { InputPageLogin } from "@/components/inputPageLogin";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function LoginPage() {
+
+function LoginPage() {
   return (
     <div className="flex h-screen justify-start items-center flex-col gap-6 p-6">
       <div className="w-full h-full flex flex-col justify-start items-center mb-9 mt-24 ">
@@ -85,3 +87,5 @@ export default function LoginPage() {
     </div>
   )
 }
+
+export default dynamic(() => Promise.resolve(LoginPage), { ssr: false })

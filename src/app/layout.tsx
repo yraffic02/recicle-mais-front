@@ -1,4 +1,3 @@
-import { UserProvider } from "@/context/contextUser";
 import "@/style/tailwind.css";
 import type { Metadata } from "next";
 import { Work_Sans } from 'next/font/google';
@@ -21,12 +20,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
-        <UserProvider>
-          <div className={`${WorkSans.variable}`}>
-            {children}
-          </div>
-        </UserProvider>
-
+        <div className={`${WorkSans.variable}`}>
+          {children}
+        </div>
       </body>
     </html>
   );
