@@ -2,14 +2,17 @@
 import Bullet from "@/components/bullet";
 import { Buttonsm } from "@/components/buttonsm";
 import { LinkButton } from "@/components/linkButton";
-import { IUserContext, useUserContext } from "@/context/contextUser";
+import { ILoginContext, useLoginContext } from "@/context/contextLogin";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 
-export default function LandingPage() {
+
+
+function LandingPage() {
   const router = useRouter();
-  const { currentPage, setCurrentPage } = useUserContext() as IUserContext;
+  const { currentPage, setCurrentPage } = useLoginContext() as ILoginContext;
   console.log(currentPage)
 
   function handelPage(page: string) {
@@ -125,3 +128,5 @@ export default function LandingPage() {
     </div>
   )
 }
+
+export default dynamic(() => Promise.resolve(LandingPage), { ssr: false })
