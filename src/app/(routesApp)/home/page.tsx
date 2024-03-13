@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { LinkButtonPrimary } from "./components/LinkButtonPrimary";
+import { LinkButtonSecondary } from "./components/LinkButtonSecondary";
 
 export const metadata: Metadata = {
     title: "Home",
@@ -61,6 +62,30 @@ export default function  HomePage (){
                 <h2 className="text-base font-medium text-center">
                     Números que refletem o sucesso!
                 </h2>
+                <section className="w-full">
+                    <LinkButtonSecondary
+                        hRef="#"
+                    >
+                        <span 
+                            className="text-base font-medium"
+                        >
+                             Reciclômetro
+                        </span>
+                        <Image 
+                            src='/illustrations/illustration7.svg'
+                            height={0}
+                            width={0}
+                            alt="logo recicle mais"
+                            sizes="100vw"
+                            className="absolute bottom-0"
+                            style={{
+                                width: '100%',
+                                maxHeight: 'auto',
+                                maxWidth: 'none', 
+                            }}
+                        />
+                    </LinkButtonSecondary>
+                </section>
             </main>
         </>
     )
