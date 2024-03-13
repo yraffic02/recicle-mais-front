@@ -58,6 +58,9 @@ export default function  HomePage (){
                         </span>
                     </LinkButtonPrimary>
                 </section>
+                <h2 className="text-base font-medium text-center">
+                    Números que refletem o sucesso!
+                </h2>
             </main>
         </>
     )
