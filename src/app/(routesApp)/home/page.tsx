@@ -18,7 +18,7 @@ export default function  HomePage (){
                 <h1 className="text-base font-medium">Título Página</h1>
                 <Avatar />
             </Header>
-            <main className="py-6">
+            <main className="py-6 h-full flex flex-col items-center gap-9">
                 <section className="flex items-center w-full">
                     <Image 
                         src='/logo/logo.svg'
