@@ -18,7 +18,7 @@ export const Header = ({children}: HeaderProps) =>{
     return(
         <header className="w-full py-3 px-[0.625rem] flex items-center justify-between">
             {
-                path === '/home' &&
+                path !== '/home' &&
                 <PrimaryActionButton />
             }
             {children}
