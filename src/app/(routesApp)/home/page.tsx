@@ -27,7 +27,7 @@ export default function  HomePage (){
                         alt="logo recicle mais"
                     />
                 </section>
-                <section className="flex items-center w-full justify-around">
+                <section className="flex items-center w-full gap-3">
                     <LinkButtonPrimary
                         hRef="#"
                     >
