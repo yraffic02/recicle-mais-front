@@ -46,9 +46,9 @@ export default function  HomePage (){
                         hRef='#'
                     >  
                         <Image 
-                            src='/illustrations/illustration5.svg'
-                            height={24}
-                            width={115}
+                            src='/illustrations/illustration6.svg'
+                            height={109}
+                            width={128}
                             alt="logo recicle mais"
                         />
                         <span 
