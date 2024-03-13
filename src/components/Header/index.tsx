@@ -11,11 +11,16 @@ type HeaderProps = {
 export const Header = ({children}: HeaderProps) =>{
     const path = usePathname()
     
-    if(path === '/' || path === '/login') return
+    if(path === '/' || path === '/login'){
+        return
+    }
 
     return(
         <header className="w-full py-3 px-[0.625rem] flex items-center justify-between">
-            <PrimaryActionButton />
+            {
+                path !== '/home' &&
+                <PrimaryActionButton />
+            }
             {children}
         </header>
     )
