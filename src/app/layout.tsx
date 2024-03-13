@@ -19,10 +19,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>
-        <div className={`${WorkSans.variable}`}>
+      <body className={`${WorkSans.variable}`}>
           {children}
-        </div>
       </body>
     </html>
   );
