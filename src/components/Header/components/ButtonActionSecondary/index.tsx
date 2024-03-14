@@ -12,8 +12,8 @@ export const SecondaryActionButton = ({ srcIcon, ...props}: SecondaryActionButto
         >
             <Image 
                 src={srcIcon}
-                width={11}
-                height={11}
+                width={24}
+                height={24}
                 alt="seta para esquerda - voltar"
             />
         </button>
