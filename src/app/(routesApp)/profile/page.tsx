@@ -1,8 +1,7 @@
-import { Avatar } from "@/components/Avatar";
 import { Header } from "@/components/Header";
 import { SecondaryActionButton } from "@/components/Header/components/ButtonActionSecondary";
-import Image from "next/image";
 import { HeaderProfile } from "./components/HeaderProfile";
+import { ListOptions } from "./components/ListOptions";
 
 export default function ProfilePage(){
     return(
@@ -23,25 +22,7 @@ export default function ProfilePage(){
                         Configurações
                     </h1>
 
-                    <ul className="w-full">
-                        <li className="w-full flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                                <Image 
-                                    src='/icons/profile.svg'
-                                    height={24}
-                                    width={24}
-                                    alt="profile"
-                                />
-                                <p>Minha Conta</p>
-                            </div>
-                            <Image 
-                                src='/icons/arrowRight.svg'
-                                height={24}
-                                width={24}
-                                alt="profile"
-                            />
-                        </li>
-                    </ul>
+                   <ListOptions />
 
                 </section>
             </main>
