@@ -6,7 +6,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="p-6 flex flex-col items-center h-screen">
+    <div className="p-6 flex flex-col items-center h-screen overflow-hidden">
         {children}
         <Footer />
     </div>
