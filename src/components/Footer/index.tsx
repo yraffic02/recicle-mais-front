@@ -37,7 +37,7 @@ export const Footer = () =>{
                         alt="inicio"
                     />
                 </ButtonFooter>
-                <ButtonFooter hRef="#" name="Perfil" typeButton="primary">
+                <ButtonFooter hRef="/profile" name="Perfil" typeButton="primary">
                     <Image 
                         src='/icons/profileOtlined.svg'
                         height={24}
