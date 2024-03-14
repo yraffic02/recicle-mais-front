@@ -18,7 +18,7 @@ export default function ProfilePage(){
                 </section>
                 <section className="w-full flex flex-col items-start">
 
-                    <h1 className="text-xl font-semibold">
+                    <h1 className="text-xl font-semibold pb-6">
                         Configurações
                     </h1>
 
