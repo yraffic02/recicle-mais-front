@@ -1,5 +1,11 @@
-import { LinkButtonTypeHome } from "@/types"
 import Link from "next/link"
+import { ReactNode } from "react"
+
+export type LinkButtonTypeHome = {
+    hRef: string,
+    children: ReactNode
+}
+
 
 export const LinkButtonPrimary = ({hRef, children}: LinkButtonTypeHome) =>{
     return(

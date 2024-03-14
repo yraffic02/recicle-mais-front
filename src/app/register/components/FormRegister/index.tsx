@@ -2,13 +2,13 @@
 import { Button } from "@/components/Button"
 import { Input } from "@/components/Input"
 import { Label } from "@/components/Label"
-import { useFormRegister } from "@/hooks/useFormRegister"
 import Image from "next/image"
 import Link from "next/link"
 import { AvatarsForm } from "../AvatarsForm"
+import { useStep } from "@/hooks/useHookStep"
 
 export const FormRegister = () =>{
-    const { formState, handleFormState } = useFormRegister()
+    const {curretStep, handleToAddCurretStep} = useStep({number: 1})
 
     return(
         <div className="media-md-h">
@@ -21,7 +21,7 @@ export const FormRegister = () =>{
                 />
 
                 {
-                    formState &&
+                    curretStep === 1 &&
                     <h2 className="font-semibold text-cinzaEscuro">
                        Quase lá! Escolha um avatar que melhor 
                        te representa para continuar seu cadastro
@@ -29,7 +29,7 @@ export const FormRegister = () =>{
                 }
 
                 {
-                    !formState &&
+                    curretStep === 0 &&
                     <h2 className="font-semibold text-cinzaEscuro">
                         Faça parte deste movimento, 
                         e ajude o mundo a se tornar cada vez mais limpo 
@@ -38,7 +38,7 @@ export const FormRegister = () =>{
                 }
 
                 {
-                    !formState &&
+                    curretStep === 0 &&
                     <>
                         <Button
                             typeButton="secondary"
@@ -68,7 +68,7 @@ export const FormRegister = () =>{
             </section>
 
             {
-                !formState && 
+                curretStep === 0 && 
                 <div className="w-full pt-5">
                     <h1 className="font-semibold text-cinzaEscuro text-center">
                         Ou
@@ -78,7 +78,7 @@ export const FormRegister = () =>{
 
             <form>
                 {
-                    !formState &&
+                    curretStep === 0 &&
                     <section className="flex flex-col items-start gap-2 mb-3 pb-20">
                 
                         <Label labelHtmlFor="name">Nome</Label>
@@ -96,12 +96,12 @@ export const FormRegister = () =>{
                 }
 
                 {
-                    formState && 
+                    curretStep === 1 && 
                     <AvatarsForm />
                 }
 
                 {
-                    formState &&
+                    curretStep === 1 &&
                     <div className="flex flex-col items-center justify-center gap-2  w-full absolute bottom-0">
                         <Button
                             typeButton="primary"
@@ -125,11 +125,11 @@ export const FormRegister = () =>{
                 }
             </form>
            {
-            !formState &&
+            curretStep === 0 &&
             <div className="flex flex-col items-center justify-center gap-1 bg-white w-full absolute bottom-0">
                 <Button
                     typeButton="primary"
-                    onClick={handleFormState}
+                    onClick={handleToAddCurretStep}
                 >
                     Continuar
                 </Button>
