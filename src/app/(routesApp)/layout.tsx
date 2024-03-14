@@ -1,3 +1,4 @@
+import { Footer } from "@/components/Footer";
 
 export default function Layout({
   children,
@@ -7,7 +8,7 @@ export default function Layout({
   return (
     <div className="p-6 flex flex-col items-center h-screen">
         {children}
-        <footer className="h-[75px]">oi</footer>
+        <Footer />
     </div>
   );
 }
