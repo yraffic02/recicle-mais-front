@@ -1,36 +1,50 @@
 import Image from "next/image"
-import Link from "next/link"
+import { ButtonFooter } from "./components/ButtonFooter"
 
 export const Footer = () =>{
     return(
-        <footer className="h-[75px]">
-            <div>
-                <Link
-                    href='#'
-                    className="
-                        py-[0.4375rem]
-                        rounded-tl-[1.25rem]
-                        rounded-tr-[1.125rem]
-                        rounded-br-[1.1875rem]
-                        rounded-bl-[0.9375rem]
-                        "
-                >
-                    <div
-                        className="
-                        flex 
-                        flex-col 
-                        items-center 
-                        justify-between"
-                    >
-                        <Image 
-                            src='/icons/start.svg'
-                            height={24}
-                            width={24}
-                            alt="inicio"
-                        />
-                        <p>inicio</p>
-                    </div>
-                </Link>
+        <footer className="h-[75px] w-screen px-6">
+            <div className="flex items-center justify-between w-full">
+                <ButtonFooter hRef="/home" name="Inicio">
+                    <Image 
+                        src='/icons/start.svg'
+                        height={24}
+                        width={24}
+                        alt="inicio"
+                    />
+                </ButtonFooter>
+                <ButtonFooter hRef="#" name="Pesquisar">
+                    <Image 
+                        src='/icons/search.svg'
+                        height={24}
+                        width={24}
+                        alt="inicio"
+                    />
+                </ButtonFooter>
+                <ButtonFooter hRef="/home">
+                    <Image 
+                        src='/icons/add.svg'
+                        height={24}
+                        width={24}
+                        alt="inicio"
+                    />
+                </ButtonFooter>
+                <ButtonFooter hRef="/home" name="Dados">
+                    <Image 
+                        src='/icons/data.svg'
+                        height={24}
+                        width={24}
+                        alt="inicio"
+                    />
+                </ButtonFooter>
+                <ButtonFooter hRef="/home" name="Perfil">
+                    <Image 
+                        src='/icons/profileOtlined.svg'
+                        height={24}
+                        width={24}
+                        alt="inicio"
+                    />
+                </ButtonFooter>
             </div>
         </footer>
     )
