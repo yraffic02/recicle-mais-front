@@ -1,7 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export const Options = () =>{
+type OptionsProps = {
+    icon: string,
+    name: string
+}
+
+export const Options = ({icon, name}: OptionsProps) =>{
     return(
         <li>
             <Link
@@ -10,12 +15,12 @@ export const Options = () =>{
             >
                     <div className="flex items-center gap-2">
                         <Image 
-                            src='/icons/profile.svg'
+                            src={`/icons/${icon}.svg`}
                             height={24}
                             width={24}
                             alt="profile"
                         />
-                        <p>Minha Conta</p>
+                        <p>{name}</p>
                     </div>
                     <Image 
                         src='/icons/arrowRight.svg'
