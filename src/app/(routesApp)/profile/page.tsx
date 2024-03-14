@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { SecondaryActionButton } from "@/components/Header/components/ButtonActionSecondary";
 import { HeaderProfile } from "./components/HeaderProfile";
 import { ListOptions } from "./components/ListOptions";
+import Link from "next/link";
 
 export default function ProfilePage(){
     return(
@@ -25,6 +26,15 @@ export default function ProfilePage(){
                    <ListOptions />
 
                 </section>
+
+                <div className="pt-9">
+                    <Link 
+                        href='#'
+                        className="text-vermelhoErro text-base underline"
+                    >
+                        Excluir Conta
+                    </Link>
+                </div>
             </main>
         </>
     )
