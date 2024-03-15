@@ -1,8 +1,8 @@
 "use client";
 
-import { ButtonLogin } from "@/components/buttonlogin";
-import { Buttonsm } from "@/components/buttonsm";
-import { InputPageLogin } from "@/components/inputPageLogin";
+import { ButtonLogin } from "@/app/opening/components/buttonlogin";
+import { Buttonsm } from "@/app/opening/components/buttonsm";
+import { InputPageLogin } from "@/app/opening/components/inputPageLogin";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
@@ -75,8 +75,8 @@ function LoginPage() {
       </div>
 
       <div className="w-full h-full flex flex-col justify-center items-center gap-6">
-        <Buttonsm size={"full"}>
-          <Buttonsm.Text>
+        <Buttonsm color="verdeFloresta" size={"full"}>
+          <Buttonsm.Text color="white">
             Entrar
           </Buttonsm.Text>
         </Buttonsm>
