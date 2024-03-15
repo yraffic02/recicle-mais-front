@@ -22,7 +22,8 @@ export const Button = ({children, typeButton, ...props}: ButtonProps) =>{
                 rounded-[2rem] 
                 ${typeButton === "primary" ? "bg-verdeFloresta" : "bg-cinzaClaroSec"}
                 ${typeButton === "primary" ? "text-white" : "text-cinzaClaro"}
-                hover:opacity-85 
+                ${typeButton === "primary" ? "hover:bg-green-900" : "hover:bg-[#3292F2]"}
+                ${typeButton === "secondary" ? "hover:text-white" : ""}
                 font-medium 
                 text-base`
             }
