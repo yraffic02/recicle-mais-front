@@ -2,18 +2,20 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 
 type ButtonProps = {
   children: ReactNode;
+  color: string;
   size: number | string;
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 type ButtonTextProps = {
   children: ReactNode;
+  color?: string;
 }
 
 
-function Buttonsm({ children, size, ...rest }: ButtonProps) {
+function Buttonsm({ children, size, color, ...rest }: ButtonProps) {
   return (
     <button
-      className={`w-${size} w- h-12 bg-verdeFloresta rounded-3xl flex justify-center items-center`}
+      className={`w-${size} h-12 bg-${color} rounded-3xl flex justify-center items-center`}
       {...rest}
     >
       {children}
@@ -22,10 +24,10 @@ function Buttonsm({ children, size, ...rest }: ButtonProps) {
 
 }
 
-function ButtonText({ children }: ButtonTextProps) {
+function ButtonText({ children, color }: ButtonTextProps) {
 
   return (
-    <span className="text-body font-workSans font-body leading-6 text-white">
+    <span className={`text-body font-workSans font-body leading-6 ${color ? `text-${color}` : "text-black"} `}>
       {children}
     </span>
   )

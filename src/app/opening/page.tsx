@@ -1,12 +1,11 @@
 'use client';
-import Bullet from "@/components/bullet";
-import { Buttonsm } from "@/components/buttonsm";
-import { LinkButton } from "@/components/linkButton";
+import Bullet from "@/app/opening/components/bullet";
+import { Buttonsm } from "@/app/opening/components/buttonsm";
+import { LinkButton } from "@/app/opening/components/linkButton";
 import { ILoginContext, useLoginContext } from "@/context/contextLogin";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
 
 
 
@@ -119,8 +118,8 @@ function LandingPage() {
             Visitante
           </LinkButton.Text>
         </LinkButton>
-        <Buttonsm size={36} onClick={() => handelPage(currentPage)}>
-          <Buttonsm.Text>
+        <Buttonsm color="verdeFloresta" size={36} onClick={() => handelPage(currentPage)}>
+          <Buttonsm.Text color="white">
             Começar
           </Buttonsm.Text>
         </Buttonsm>
