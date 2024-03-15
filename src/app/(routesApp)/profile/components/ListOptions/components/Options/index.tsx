@@ -3,14 +3,15 @@ import Link from "next/link"
 
 type OptionsProps = {
     icon: string,
-    name: string
+    name: string, 
+    hRef: string
 }
 
-export const Options = ({icon, name}: OptionsProps) =>{
+export const Options = ({icon, name, hRef}: OptionsProps) =>{
     return(
         <li>
             <Link
-                href='#'
+                href={hRef}
                 className="w-full flex items-center justify-between py-[1.125rem] px-2"
             >
                     <div className="flex items-center gap-2">
