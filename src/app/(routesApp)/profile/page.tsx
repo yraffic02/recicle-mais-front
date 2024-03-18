@@ -1,5 +1,5 @@
 import { Header } from "@/components/Header";
-import { SecondaryActionButton } from "@/components/Header/components/ButtonActionSecondary";
+import { SecondaryHeaderButton } from "@/components/Header/components/ButtonActionSecondary";
 import { HeaderProfile } from "./components/HeaderProfile";
 import { ListOptions } from "./components/ListOptions";
 import Link from "next/link";
@@ -9,7 +9,7 @@ export default function ProfilePage(){
         <>  
             <Header>
                 <h1>Perfil</h1>
-                <SecondaryActionButton 
+                <SecondaryHeaderButton 
                     srcIcon="/icons/notification.svg"
                 />
             </Header>
