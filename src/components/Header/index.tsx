@@ -1,4 +1,3 @@
-import { usePathname } from "next/navigation"
 import { ReactNode } from "react"
 import { PrimaryHeaderButton } from "./components/ButtonActionPrimary"
 
