@@ -5,7 +5,7 @@ type SecondaryActionButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     srcIcon: string,   
 }
 
-export const SecondaryActionButton = ({ srcIcon, ...props}: SecondaryActionButtonProps) =>{
+export const SecondaryHeaderButton = ({ srcIcon, ...props}: SecondaryActionButtonProps) =>{
     return(
         <button
             {...props}

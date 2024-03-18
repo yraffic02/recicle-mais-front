@@ -1,14 +1,19 @@
 'use client'
 import Image from "next/image"
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
-export const PrimaryActionButton = () =>{
+export const PrimaryHeaderButton = () =>{
+    const path = usePathname()
     const router = useRouter()
 
     const handleBack = () =>{
         router.back()
     }
-   
+    
+    if(path === '/home'){
+        return
+    }
+
     return(
         <button
             onClick={handleBack}
