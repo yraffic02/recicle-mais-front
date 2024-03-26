@@ -2,7 +2,6 @@ import { Avatar } from "@/components/Avatar";
 import { Header } from "@/components/Header";
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { LinkButtonPrimary } from "./components/LinkButtonPrimary";
 import { LinkButtonSecondary } from "./components/LinkButtonSecondary";
 
