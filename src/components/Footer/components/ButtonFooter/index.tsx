@@ -1,11 +1,13 @@
 'use client'
-import { LinkButtonTypeHome } from "@/types"
 import Link from "next/link"
 import { usePathname } from "next/navigation";
+import { ReactNode } from "react";
 
 type ButtonType = 'primary' | 'secondary';
 
-type ButtonFooter = LinkButtonTypeHome & {
+type ButtonFooter = {
+    children: ReactNode
+    hRef: string
     name?: string
     typeButton: ButtonType
 }
