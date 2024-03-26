@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: "Home",
 };
 
-export default function  HomePage (){
+export default function  HomePage () {
     return(
         <>
             <Header>
