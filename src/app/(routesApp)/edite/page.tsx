@@ -6,6 +6,7 @@ import { Label } from "@/components/Label";
 import Image from "next/image";
 import Link from "next/link";
 import { HeaderProfile } from "../profile/components/HeaderProfile";
+import { Button } from "@/components/Button";
 
 export default function EditePage() {
   return (
@@ -48,9 +49,9 @@ export default function EditePage() {
               Clique aqui!
             </Link>
           </div>
-          <Buttonsm color="verdeFloresta" size={"full"}>
-            <Buttonsm.Text color="white">Salvar</Buttonsm.Text>
-          </Buttonsm>
+          <Button typeButton="primary">
+            Salvar
+          </Button>
         </form>
       </div>
     </div>
