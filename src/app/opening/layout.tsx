@@ -12,12 +12,7 @@ export default function Layout({
 }>) {
   return (
     <div className="p-6 h-screen">
-      <LoginProvider>
-        <div>
-          {children}
-        </div>
-      </LoginProvider>
+      {children}
     </div>
-
   );
 }
