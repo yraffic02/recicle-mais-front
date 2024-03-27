@@ -1,4 +1,3 @@
-import { LoginProvider } from "@/context/contextLogin";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
