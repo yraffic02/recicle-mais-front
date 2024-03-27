@@ -17,8 +17,12 @@ body {
 
 @media (max-height: 680px) {
     .media-mx-h {
-        max-height: 100%;
-        gap: 10px;
+        height: 100%;
+        gap: 1rem;
         overflow-y: auto;
+    }
+
+    .form-mb{
+        margin-bottom: 4rem;
     }
 }

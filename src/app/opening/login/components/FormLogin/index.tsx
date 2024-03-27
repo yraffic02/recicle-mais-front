@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export const FormLogin = () =>{
     return(
-        <form className="w-full flex flex-col justify-center gap-3">
+        <form className="w-full flex flex-col justify-center gap-3 form-mb">
 
             <Label labelHtmlFor="email">Email</Label>
             <Input id="email" placeholder="Digite aqui o seu Email" />
