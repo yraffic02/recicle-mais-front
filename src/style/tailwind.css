@@ -14,3 +14,11 @@ body {
         overflow-y: auto;
     }
 }
+
+@media (max-height: 680px) {
+    .media-mx-h {
+        max-height: 100%;
+        gap: 10px;
+        overflow-y: auto;
+    }
+}
