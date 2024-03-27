@@ -39,7 +39,7 @@ return (
           </span>
         </div>
         <div className="w-full flex justify-center items-center gap-6">
-          <Bullet color={true} />
+          <Bullet color />
           <Bullet />
           <Bullet />
         </div>
@@ -64,9 +64,9 @@ return (
             Nosso objetivo é conectar você com catadores que vão até sua casa, informar pontos de coleta na rua e dar informações sobre reciclagem.
           </span>
         </div>
-        <div className="w-full flex justify-center items-center mt-16 gap-6">
+        <div className="w-full flex justify-center items-center gap-6">
           <Bullet/>
-          <Bullet color={true} />
+          <Bullet color />
           <Bullet />
         </div>
 
@@ -78,7 +78,6 @@ return (
       curretStep === 2 ?
       <LayoutStep>
         <Image
-          className="mb-5"
           src={'/illustrations/illustration3.svg'}
           alt={'ilustração'}
           width={327}
@@ -98,10 +97,10 @@ return (
           </div>
 
         </div>
-        <div className="w-full flex justify-center items-center mt-16 gap-6">
+        <div className="w-full flex justify-center items-center gap-6">
           <Bullet />
           <Bullet />
-          <Bullet color={true} />
+          <Bullet color />
         </div>
 
       </LayoutStep>
