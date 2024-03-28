@@ -13,10 +13,10 @@ export const Output = forwardRef<HTMLOutputElement, OutputProps>(
           flex
           items-center
           gap-4
-          mt-[5%]
+          border-b-[1px]
             text-black
-            rounded-[2rem] 
             w-full
+            h-12
             focus:placeholder-black"
       />
     );
