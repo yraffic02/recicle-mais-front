@@ -2,7 +2,6 @@ import { Avatar } from "@/components/Avatar";
 import { Header } from "@/components/Header";
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { LinkButtonPrimary } from "./components/LinkButtonPrimary";
 import { LinkButtonSecondary } from "./components/LinkButtonSecondary";
 
@@ -10,7 +9,7 @@ export const metadata: Metadata = {
     title: "Home",
 };
 
-export default function  HomePage (){
+export default function  HomePage () {
     return(
         <>
             <Header>

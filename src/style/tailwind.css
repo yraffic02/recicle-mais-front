@@ -14,3 +14,15 @@ body {
         overflow-y: auto;
     }
 }
+
+@media (max-height: 680px) {
+    .media-mx-h {
+        height: 100%;
+        gap: 1rem;
+        overflow-y: auto;
+    }
+
+    .form-mb{
+        margin-bottom: 4rem;
+    }
+}
