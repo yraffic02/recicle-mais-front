@@ -4,15 +4,18 @@ import { Button } from "@/components/Button";
 import { Header } from "@/components/Header/index";
 import { Input } from "@/components/Input/index";
 import { Label } from "@/components/Label";
+import { useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 
 export default function Adress() {
+  const router = useRouter();
   const [formValues, setFormValues] = useState({
     cep: "",
     endereco: "",
     municipio: "",
     estado: "",
   });
+  const [message, setMessage] = useState("");
 
   const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -20,10 +23,18 @@ export default function Adress() {
   };
 
   const handleSubmit = () => {
-    console.log("Formulário enviado:", formValues);
+    if (
+      formValues.cep &&
+      formValues.endereco &&
+      formValues.municipio &&
+      formValues.estado
+    ) {
+      router.push("near-trash");
+    } else {
+      setMessage("Preencha todos os campos");
+    }
   };
-  
-console.log(formValues, "FORM")
+
   return (
     <>
       <div className="h-screen flex flex-col justify-between w-full">
@@ -35,10 +46,7 @@ console.log(formValues, "FORM")
           <h1 className="font-workSans font-title text-xl leading-6 mt-2 mb-7">
             Digite seu endereço
           </h1>
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col justify-center gap-4"
-          >
+          <form className="flex flex-col justify-center gap-4">
             <Label labelHtmlFor="text">CEP</Label>
             <Input
               placeholder="Digite aqui seu CEP"
@@ -70,7 +78,14 @@ console.log(formValues, "FORM")
           </form>
         </main>
         <div className="flex flex-col justify-between">
-          <Button typeButton="quinary">Continuar</Button>
+          {message && (
+            <span className="block text-red-700 text-center mb-1">
+              {message}
+            </span>
+          )}
+          <Button onClick={() => handleSubmit()} typeButton="quinary">
+            Continuar
+          </Button>
         </div>
       </div>
     </>

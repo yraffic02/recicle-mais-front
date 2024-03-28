@@ -3,18 +3,20 @@ import { Avatar } from "@/components/Avatar";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header/index";
 import { useCollectContext } from "@/context/contextCollect";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function CollectPoint() {
+  const router = useRouter();
   const { handleClickTypeTrashSelected, selectedTypeTrash } =
     useCollectContext();
   const [message, setMessage] = useState("");
 
   const handleClickGoToHowFind = () => {
-    if (!selectedTypeTrash) {
+    if (selectedTypeTrash) {
+      router.push("how-find");
+    } else {
       setMessage("Selecione um tipo de lixo.");
-      console.log(message, "MENSAGEM");
     }
   };
 
@@ -64,20 +66,13 @@ export default function CollectPoint() {
         </main>
         <div className="flex flex-col justify-between">
           {message && (
-            <span className="block text-red-700 text-center mb-10px">
+            <span className="block text-red-700 text-center mb-1">
               {message}
             </span>
           )}
-          {selectedTypeTrash && (
-            <Link href="how-find">
-              <Button typeButton="quinary">Continuar</Button>
-            </Link>
-          )}
-          {!selectedTypeTrash && (
-            <Button onClick={handleClickGoToHowFind} typeButton="quinary">
-              Continuar
-            </Button>
-          )}
+          <Button onClick={() => handleClickGoToHowFind()} typeButton="quinary">
+            Continuar
+          </Button>
         </div>
       </div>
     </>
