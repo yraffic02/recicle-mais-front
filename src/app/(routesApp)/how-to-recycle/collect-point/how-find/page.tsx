@@ -18,6 +18,9 @@ export default function HowFind() {
             <Button typeButton="quaternary">Endereço</Button>
             <Button typeButton="quaternary">GPS</Button>
           </div>
+          <h1 className="m-4 text-center">Ou</h1>
+          <Button typeButton="quinary">Usar meu endereço cadastrado</Button>
+
         </main>
         <div className="flex flex-col justify-between">
           <Button typeButton="quinary">Continuar</Button>

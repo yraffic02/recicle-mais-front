@@ -2,6 +2,7 @@ import { Header } from "@/components/Header/index";
 import { Avatar } from "@/components/Avatar";
 import Image from "next/image";
 import { Button } from "@/components/Button";
+import Link from "next/link";
 
 export default function HowToRecycle() {
   return (
@@ -26,9 +27,11 @@ export default function HowToRecycle() {
         </main>
         <div className="flex flex-col justify-between gap-3">
           <Button typeButton="tertiary">Através de catadores</Button>
-          <Button typeButton="tertiary" className="mt-4">
-            Através de Pontos de Coleta
-          </Button>
+          <Link href="how-to-recycle/collect-point/trash-type">
+            <Button typeButton="tertiary" className="mt-4">
+              Através de Pontos de Coleta
+            </Button>
+          </Link>
         </div>
       </div>
     </>

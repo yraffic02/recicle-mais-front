@@ -24,16 +24,9 @@ export const Button = ({children, typeButton, ...props}: ButtonProps) =>{
                 ${typeButton === "primary" ? "text-white" : "text-cinzaClaro"}
                 ${typeButton === "primary" ? "hover:bg-green-900" : "hover:bg-[#3292F2]"}
                 ${typeButton === "secondary" ? "hover:text-white" : ""}
-                ${typeButton === "tertiary" ? "bg-verdeClaro" : ""}
-                ${typeButton === "tertiary" ? "text-verdeFloresta" : ""}
-                ${typeButton === "tertiary" ? "hover:bg-verdeFloresta" : ""}
-                ${typeButton === "tertiary" ? "hover:text-brancoAbsoluto" : ""}
-                ${typeButton === "quaternary" ? "bg-brancoAbsoluto" : ""}
-                ${typeButton === "quaternary" ? "hover:bg-verdeClaro" : ""}
-                ${typeButton === "quaternary" ? "hover:text-verdeFloresta" : ""}
-                ${typeButton === "quinary" ? "text-cinzaClaro" : ""}
-                ${typeButton === "quinary" ? "hover:text-white" : ""}
-                ${typeButton === "quinary" ? "hover:bg-verdeFloresta" : ""}
+                ${typeButton === "tertiary" ? "bg-verdeClaro text-verdeFloresta hover:bg-verdeFloresta hover:text-brancoAbsoluto" : ""}
+                ${typeButton === "quaternary" ? "bg-brancoAbsoluto hover:bg-verdeClaro hover:text-verdeFloresta" : ""}
+                ${typeButton === "quinary" ? "text-cinzaClaro hover:text-white hover:bg-verdeFloresta" : ""}
                 font-medium 
                 text-base`
             }

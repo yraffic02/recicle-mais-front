@@ -1,26 +1,32 @@
 "use client"
-import { ReactNode, createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-interface ICollectProps {
-  children: ReactNode;
+const CollectContext = createContext<any>(null);
+
+export function useCollectContext() {
+  return useContext(CollectContext);
 }
 
-export interface ICollectContext {
-  selectedTrash: string;
-  setSelectedTrash: (selectedTrash: string) => void;
-}
-
-export const CollectContext = createContext<ICollectContext | undefined>(undefined);
-
-export function CollectProvider({ children }: ICollectProps) {
+export function CollectProvider({ children }: { children: React.ReactNode }) {
   const [selectedTrash, setSelectedTrash] = useState<string>("");
-  console.log(selectedTrash, "SELECTED")
+  const [selectedTypeTrash, setSelectedTypeTrash] = useState<string>("");
 
-  return (
-    <CollectContext.Provider value={{ setSelectedTrash, selectedTrash }}>
-      {children}
-    </CollectContext.Provider>
-  );
+  const handleClickCollectPoint = (street: string, distance: string) => {
+    setSelectedTrash(`${street}, ${distance}`);
+    console.log(selectedTrash)
+  };
+
+  const handleClickTypeTrashSelected = (TypeTrash: string) => {
+    setSelectedTypeTrash(TypeTrash);
+    console.log(selectedTypeTrash)
+  };
+
+  const value = {
+    selectedTrash,
+    handleClickCollectPoint,
+    handleClickTypeTrashSelected,
+    selectedTypeTrash
+  };
+
+  return <CollectContext.Provider value={value}>{children}</CollectContext.Provider>;
 }
-
-export const useCollectContext = () => useContext(CollectContext);

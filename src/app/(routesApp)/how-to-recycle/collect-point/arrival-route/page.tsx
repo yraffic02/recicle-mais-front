@@ -1,9 +1,14 @@
+"use client"
 import { Avatar } from "@/components/Avatar";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header/index";
+import { Output } from "@/components/Output";
+import { useCollectContext } from "@/context/contextCollect";
 import Image from "next/image";
 
 export default function ArrivalRoute() {
+  const { selectedTrash } = useCollectContext();
+
   return (
     <>
       <div className="h-screen flex flex-col justify-between w-full">
@@ -18,6 +23,15 @@ export default function ArrivalRoute() {
           <div className="flex flex-col h-[90%]">
             <div className="h-[20%] w-[100%]">
               <p className="font-workSans">Destino</p>
+              <Output>
+                <Image
+                  src="/icons/trash.svg"
+                  height={36}
+                  width={36}
+                  alt="trash icon"
+                />
+                {selectedTrash}
+              </Output>
             </div>
             <div className="h-[80%] w-[100%] flex justify-center items-center">
               <Image
@@ -31,7 +45,7 @@ export default function ArrivalRoute() {
           </div>
         </main>
         <div className="flex flex-col justify-between">
-          <Button typeButton="secondary">Continuar</Button>
+          <Button typeButton="quinary">Continuar</Button>
         </div>
       </div>
     </>

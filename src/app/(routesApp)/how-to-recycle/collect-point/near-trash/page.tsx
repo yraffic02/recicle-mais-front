@@ -5,14 +5,10 @@ import { Header } from "@/components/Header/index";
 import { Output } from "@/components/Output";
 import Image from "next/image";
 import nearDatasTrash from "./nearDatasTrash";
-import { ICollectContext, useCollectContext } from "@/context/contextCollect";
+import { useCollectContext } from "@/context/contextCollect";
 
 export default function NearTrash() {
-  const { setSelectedTrash } = useCollectContext() as ICollectContext;
-
-  const handleClickCollectPoint = (street: string, distance: string) => {
-    setSelectedTrash(`${street}, ${distance}`);
-  };
+  const { handleClickCollectPoint } = useCollectContext();
 
   return (
     <>

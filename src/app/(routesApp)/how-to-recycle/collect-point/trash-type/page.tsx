@@ -1,8 +1,23 @@
+"use client";
 import { Avatar } from "@/components/Avatar";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header/index";
+import { useCollectContext } from "@/context/contextCollect";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function CollectPoint() {
+  const { handleClickTypeTrashSelected, selectedTypeTrash } =
+    useCollectContext();
+  const [message, setMessage] = useState("");
+
+  const handleClickGoToHowFind = () => {
+    if (!selectedTypeTrash) {
+      setMessage("Selecione um tipo de lixo.");
+      console.log(message, "MENSAGEM");
+    }
+  };
+
   return (
     <>
       <div className="h-screen flex flex-col justify-between w-full">
@@ -15,15 +30,54 @@ export default function CollectPoint() {
             Qual seu tipo de lixo?
           </h1>
           <div className="flex flex-col justify-center gap-4">
-            <Button typeButton="quaternary">Papel</Button>
-            <Button typeButton="quaternary">Plástico</Button>
-            <Button typeButton="quaternary">Vidro</Button>
-            <Button typeButton="quaternary">Metal</Button>
-            <Button typeButton="quaternary">Lixo Eletrônico</Button>
+            <Button
+              onClick={() => handleClickTypeTrashSelected("papel")}
+              typeButton="quaternary"
+            >
+              Papel
+            </Button>
+            <Button
+              onClick={() => handleClickTypeTrashSelected("Plásico")}
+              typeButton="quaternary"
+            >
+              Plástico
+            </Button>
+            <Button
+              onClick={() => handleClickTypeTrashSelected("Vidro")}
+              typeButton="quaternary"
+            >
+              Vidro
+            </Button>
+            <Button
+              onClick={() => handleClickTypeTrashSelected("Metal")}
+              typeButton="quaternary"
+            >
+              Metal
+            </Button>
+            <Button
+              onClick={() => handleClickTypeTrashSelected("Lixo eletrônico")}
+              typeButton="quaternary"
+            >
+              Lixo Eletrônico
+            </Button>
           </div>
         </main>
         <div className="flex flex-col justify-between">
-          <Button typeButton="quinary">Continuar</Button>
+          {message && (
+            <span className="block text-red-700 text-center mb-10px">
+              {message}
+            </span>
+          )}
+          {selectedTypeTrash && (
+            <Link href="how-find">
+              <Button typeButton="quinary">Continuar</Button>
+            </Link>
+          )}
+          {!selectedTypeTrash && (
+            <Button onClick={handleClickGoToHowFind} typeButton="quinary">
+              Continuar
+            </Button>
+          )}
         </div>
       </div>
     </>
