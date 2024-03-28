@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode } from "react"
 
-type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'quaternary';
+type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'quaternary' | 'quinary';
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     children: ReactNode
@@ -31,6 +31,9 @@ export const Button = ({children, typeButton, ...props}: ButtonProps) =>{
                 ${typeButton === "quaternary" ? "bg-brancoAbsoluto" : ""}
                 ${typeButton === "quaternary" ? "hover:bg-verdeClaro" : ""}
                 ${typeButton === "quaternary" ? "hover:text-verdeFloresta" : ""}
+                ${typeButton === "quinary" ? "text-cinzaClaro" : ""}
+                ${typeButton === "quinary" ? "hover:text-white" : ""}
+                ${typeButton === "quinary" ? "hover:bg-verdeFloresta" : ""}
                 font-medium 
                 text-base`
             }

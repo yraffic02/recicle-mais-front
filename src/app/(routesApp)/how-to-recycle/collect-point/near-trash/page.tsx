@@ -1,11 +1,19 @@
+"use client";
 import { Avatar } from "@/components/Avatar";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header/index";
-import nearDatasTrash from "./nearDatasTrash";
 import { Output } from "@/components/Output";
 import Image from "next/image";
+import nearDatasTrash from "./nearDatasTrash";
+import { ICollectContext, useCollectContext } from "@/context/contextCollect";
 
-export default function CollectPoint() {
+export default function NearTrash() {
+  const { setSelectedTrash } = useCollectContext() as ICollectContext;
+
+  const handleClickCollectPoint = (street: string, distance: string) => {
+    setSelectedTrash(`${street}, ${distance}`);
+  };
+
   return (
     <>
       <div className="h-screen flex flex-col justify-between w-full">
@@ -21,12 +29,21 @@ export default function CollectPoint() {
             <Output>Rua Costa Barros, Campinas, SP</Output>
             <ul>
               {nearDatasTrash.map((nearTrash, index) => (
-                <li key={index} className="flex items-center border-b-[1px] gap-3 py-2">
+                <li
+                  key={index}
+                  onClick={() =>
+                    handleClickCollectPoint(
+                      nearTrash.street,
+                      nearTrash.distance
+                    )
+                  }
+                  className="flex items-center border-b-[1px] gap-3 py-2 cursor-pointer"
+                >
                   <Image
                     src="/icons/trash.svg"
                     height={36}
                     width={36}
-                    alt="como reciclar"
+                    alt="trash icon"
                   />
                   {`${nearTrash.street} / ${nearTrash.distance}`}
                 </li>
@@ -35,7 +52,7 @@ export default function CollectPoint() {
           </div>
         </main>
         <div className="flex flex-col justify-between">
-          <Button typeButton="secondary">Continuar</Button>
+          <Button typeButton="quinary">Continuar</Button>
         </div>
       </div>
     </>

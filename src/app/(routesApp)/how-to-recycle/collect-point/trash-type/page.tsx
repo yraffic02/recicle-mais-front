@@ -23,7 +23,7 @@ export default function CollectPoint() {
           </div>
         </main>
         <div className="flex flex-col justify-between">
-          <Button typeButton="secondary">Continuar</Button>
+          <Button typeButton="quinary">Continuar</Button>
         </div>
       </div>
     </>
