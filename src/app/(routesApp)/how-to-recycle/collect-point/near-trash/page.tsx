@@ -6,9 +6,21 @@ import { Output } from "@/components/Output";
 import Image from "next/image";
 import nearDatasTrash from "./nearDatasTrash";
 import { useCollectContext } from "@/context/contextCollect";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function NearTrash() {
-  const { handleClickCollectPoint } = useCollectContext();
+  const router = useRouter();
+  const [message, setMessage] = useState("");
+  const { handleClickCollectPoint, selectedTrash } = useCollectContext();
+
+  const handleClickGoTo = () => {
+    if (selectedTrash) {
+      router.push("arrival-route");
+    } else {
+      setMessage("Escolha um destino.");
+    }
+  };
 
   return (
     <>
@@ -48,7 +60,14 @@ export default function NearTrash() {
           </div>
         </main>
         <div className="flex flex-col justify-between">
-          <Button typeButton="quinary">Continuar</Button>
+          {message && (
+            <span className="block text-red-700 text-center mb-1">
+              {message}
+            </span>
+          )}
+          <Button onClick={() => handleClickGoTo()} typeButton="quinary">
+            Continuar
+          </Button>
         </div>
       </div>
     </>
