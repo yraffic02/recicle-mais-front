@@ -1,40 +1,53 @@
 import { Buttonsm } from "@/app/opening/components/buttonsm";
+import { Button } from "@/components/Button";
+import { Header } from "@/components/Header";
+import { Input } from "@/components/Input";
+import { Label } from "@/components/Label";
 import Image from "next/image";
-import Header from "../components/header";
-import { InputEdite } from "../components/inputEdite";
 
 export default function EditePassword() {
   return (
-    <div className="w-full h-screen flex flex-col justify-start items-center p-6">
-      <Header title="Alterar Senha" />
-      <div className="w-full flex flex-col justify-start items-center ">
-        <div className="w-full flex justify-start items-center mt-12 mb-8">
-          <Image src="/logo/logo.svg" alt="logo" width={115} height={24} />
+    <div className="w-full h-screen flex flex-col relative">
+      <Header>
+          <h1 className="font-medium text-base">Alterar Senha</h1>
+          <div></div>
+      </Header>
+      <div className="w-full flex flex-col items-start pt-12 media-md-h">
+        <Image 
+          src="/logo/logo.svg" 
+          alt="logo" 
+          width={115} 
+          height={24} 
+          className="mb-8"
+        />
+  
+        <div className="w-full flex items-start flex-col gap-4 mb-12">
+          <h1 className="text-black text-title font-title leading-8">
+            Alterar minha senha
+          </h1>
+          <p className="text-body font-body leading-8 text-black">
+            Para alterar sua senha, 
+            digite sua senha atual, a nova senha e, em seguida, 
+            digite a nova senha mais uma vêz para  confirmá-la.
+          </p>
         </div>
+        <form className="w-full flex flex-col justify-center  mb-24 gap-3">
+          <Label labelHtmlFor="passwordCurrent">Senha atual</Label>
+          <Input id="passwordCurrent"  placeholder="Digite sua senha atual"/>
 
-        <div className="w-full flex justify-center items-center flex-col">
-          <div className="w-full flex justify-start items-center mb-4" >
-            <h1 className="font-workSans text-black text-title font-title leading-8 ">Alterar minha senha</h1>
-          </div>
-          <div className="flex justify-start items-center mb-12 ">
-            <span className="font-workSans text-body font-body leading-8 text-black">
-              Para alterar sua senha, digite sua senha atual, a nova senha e, em seguida, digite a nova senha mais uma vêz para  confirmá-la.
-            </span>
-          </div>
-        </div>
-        <div className="w-full flex flex-col justify-center items-center mb-24 gap-3">
-          <InputEdite label="Senha atual" type="password" placeholder="Digite sua senha Atual" name="senhaAtual" />
-          <InputEdite label="Nova Senha" type="password" placeholder="Digite sua senha Atual" name="novaSenha" />
-          <InputEdite label="Confirme a nova senha" type="password" placeholder="Digite sua senha Atual" name="confirmeSenha" />
-        </div>
-        <div className="w-full  flex justify-center items-center gap-6">
-          <Buttonsm size={36} color="cinzaClaroSec">
-            <Buttonsm.Text color="cinzaClaro">Cancelar</Buttonsm.Text>
-          </Buttonsm>
-          <Buttonsm size={36} color="verdeFloresta">
-            <Buttonsm.Text color="white">Confirmar</Buttonsm.Text>
-          </Buttonsm>
+          <Label labelHtmlFor="newPassword">Nova Senha</Label>
+          <Input id="newPassword" placeholder="Digite a nova senha"/>
 
+          <Label labelHtmlFor="confirmPassword">Confirme a nova senha</Label>
+          <Input id="confirmPassword" placeholder="Repetir a nova senha"/>
+        </form>
+        <div className="w-full  flex justify-center items-center gap-6 absolute bottom-0">
+          <Button typeButton="secondary">
+              Cancelar
+          </Button>
+          <Button typeButton="primary">
+              Confirmar
+          </Button>
         </div>
       </div>
     </div>
