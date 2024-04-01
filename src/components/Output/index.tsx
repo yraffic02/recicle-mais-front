@@ -13,7 +13,9 @@ export const Output = forwardRef<HTMLOutputElement, OutputProps>(
           flex
           items-center
           gap-4
-          border-b-[1px]
+          border-[1px]
+          rounded-[32px]
+          pl-4
             text-black
             w-full
             h-12
