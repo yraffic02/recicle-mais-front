@@ -5,10 +5,16 @@ import { Header } from "@/components/Header/index";
 import { useCollectContext } from "@/context/contextCollect";
 import Image from "next/image";
 import ModalStars from "./modal-star";
+import { useState } from "react";
 
 export default function ArrivalRoute() {
   const { selectedTrash } = useCollectContext();
-  console.log(selectedTrash);
+  const [enddingRoute, setEnddingRoute] = useState(false);
+
+  setTimeout(() => {
+    setEnddingRoute(true);
+  }, 5000);
+
   return (
     <>
       <div className="h-screen flex flex-col justify-between w-full">
@@ -41,7 +47,7 @@ export default function ArrivalRoute() {
                 alt="como reciclar"
                 className="h-[100%] w-[100%]"
               />
-              <ModalStars/>
+              {enddingRoute && <ModalStars />}
             </div>
           </div>
         </main>
