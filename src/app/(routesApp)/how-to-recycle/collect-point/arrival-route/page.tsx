@@ -10,9 +10,15 @@ import { useState } from "react";
 export default function ArrivalRoute() {
   const { selectedTrash } = useCollectContext();
   const [enddingRoute, setEnddingRoute] = useState(false);
+  const [title, setTitle] = useState("Rota de Chegada");
+  const [subTitle, setSubTitle] = useState("");
+  const [classCenter, setClassCenter] = useState("");
 
   setTimeout(() => {
     setEnddingRoute(true);
+    setTitle("Parabéns!");
+    setSubTitle("Você chegou ao seu destino.")
+    setClassCenter("text-center")
   }, 5000);
 
   return (
@@ -23,12 +29,13 @@ export default function ArrivalRoute() {
           <Avatar />
         </Header>
         <main style={{ height: "calc(100vh - 200px)" }}>
-          <h1 className="font-workSans font-title text-xl leading-6 mb-9">
-            Rota de Chegada
+          <h1 className={`font-workSans font-title text-xl leading-6 mb-4 ${classCenter}`}>
+            {title}
           </h1>
+          <div className="text-center">{subTitle && subTitle}</div>          
           <div className="flex flex-col h-[90%]">
             <div className="h-[20%] w-[100%] flex flex-col justify-end">
-              <p className="font-workSans">Destino</p>
+              {!enddingRoute && <p className="font-workSans">Destino</p>}
               <div className="flex items-center gap-4 mt-3 border-b-[1px] pb-2 mb-2">
                 <Image
                   src="/icons/trash.svg"
