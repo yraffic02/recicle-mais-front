@@ -7,6 +7,7 @@ import { Button } from "@/components/Button";
 import FormContact from "./form-contact/FormContact";
 import FormAdress from "./form-adress/FormAdress";
 import { useStep } from "@/hooks/useHookStep";
+import Link from "next/link";
 
 export default function RegisterScheduling() {
   const { curretStep, handleToAddCurretStep } = useStep({ number: 1 });
@@ -73,9 +74,16 @@ export default function RegisterScheduling() {
           </div>
         </main>
       </div>
-      <Button typeButton="quinary" onClick={handleToAddCurretStep}>
-        Continuar
-      </Button>
+      {curretStep === 0 && (
+        <Button typeButton="quinary" onClick={handleToAddCurretStep}>
+          Continuar
+        </Button>
+      )}
+      {curretStep === 1 && (
+        <Link href="register-scheduling/congratulations">
+          <Button typeButton="quinary">Continuar</Button>
+        </Link>
+      )}
     </div>
   );
 }
