@@ -1,11 +1,16 @@
+"use client";
+
 import { Avatar } from "@/components/Avatar";
 import { Header } from "@/components/Header/index";
 import Image from "next/image";
-import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
-import { Label } from "@/components/Label";
+import FormContact from "./form-contact/FormContact";
+import FormAdress from "./form-adress/FormAdress";
+import { useStep } from "@/hooks/useHookStep";
 
 export default function RegisterScheduling() {
+  const { curretStep, handleToAddCurretStep } = useStep({ number: 1 });
+
   return (
     <div className="h-screen flex flex-col justify-between w-full">
       <div className="h-full">
@@ -18,40 +23,56 @@ export default function RegisterScheduling() {
             Continue seu cadastro para que possamos te conectar com os nossos
             catadores!
           </h2>
-          <div className="flex w-full mb-6">
-            <div className="w-[50%]">
-              <Image
-                className="w-full"
-                src="/icons/check1noverify.svg"
-                alt="Next.js"
-                width={164}
-                height={34}
-              />
+          {curretStep === 0 && (
+            <div className="flex w-full mb-6">
+              <div className="w-[50%]">
+                <Image
+                  className="w-full"
+                  src="/icons/check1noverify.svg"
+                  alt="Next.js"
+                  width={164}
+                  height={34}
+                />
+              </div>
+              <div className="w-[50%]">
+                <Image
+                  className="w-full"
+                  src="/icons/check2gray.svg"
+                  alt="Next.js"
+                  width={164}
+                  height={34}
+                />
+              </div>
             </div>
-            <div className="w-[50%]">
-              {" "}
-              <Image
-                className="w-full"
-                src="/icons/check2gray.svg"
-                alt="Next.js"
-                width={164}
-                height={34}
-              />
+          )}
+          {curretStep === 1 && (
+            <div className="flex w-full mb-6">
+              <div className="w-[50%]">
+                <Image
+                  className="w-full"
+                  src="/icons/check1verify.svg"
+                  alt="Next.js"
+                  width={164}
+                  height={34}
+                />
+              </div>
+              <div className="w-[50%]">
+                <Image
+                  className="w-full"
+                  src="/icons/check2green.svg"
+                  alt="Next.js"
+                  width={164}
+                  height={34}
+                />
+              </div>
             </div>
-          </div>
-          <form className="flex flex-col items-start gap-3 mb-3 pb-20">
-            <Label labelHtmlFor="name">Nome Completo</Label>
-            <Input
-              placeholder="Digite seu nome completo"
-              name="estado"
-              value={""}
-            />
-            <Label labelHtmlFor="text">Número de Celular</Label>
-            <Input placeholder="ex: (99) 98989-9898" name="estado" value={""} />
-          </form>
+          )}
+          {curretStep === 0 && <FormContact />}
         </main>
       </div>
-      <Button typeButton="quinary">Continuar</Button>
+      <Button typeButton="quinary" onClick={handleToAddCurretStep}>
+        Continuar
+      </Button>
     </div>
   );
 }

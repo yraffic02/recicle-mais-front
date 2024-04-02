@@ -7,7 +7,7 @@ import Link from "next/link"
 import { AvatarsForm } from "../AvatarsForm"
 import { useStep } from "@/hooks/useHookStep"
 
-export const FormRegister = () =>{
+export const FormRegister = () => {
     const {curretStep, handleToAddCurretStep} = useStep({number: 1})
 
     return(
