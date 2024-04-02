@@ -3,7 +3,7 @@ import { Label } from "@/components/Label";
 
 export default function FormAdress() {
   return (
-    <form className="flex flex-col items-start">
+    <form className="flex flex-col items-start h-[48vh] overflow-y-auto gap-3 pb-6">
       <Label labelHtmlFor="text">CEP</Label>
       <Input placeholder="ex: (99) 98989-9898" name="cep" />
       <Label labelHtmlFor="name">Endereço</Label>

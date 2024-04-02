@@ -67,7 +67,10 @@ export default function RegisterScheduling() {
               </div>
             </div>
           )}
-          {curretStep === 0 && <FormContact />}
+          <div>
+            {curretStep === 0 && <FormContact />}
+            {curretStep === 1 && <FormAdress />}
+          </div>
         </main>
       </div>
       <Button typeButton="quinary" onClick={handleToAddCurretStep}>
