@@ -5,7 +5,7 @@ export interface IUser {
     name: string,
     email: string,
     password: string,
-    avatar: string
+    avatar?: string
 }
 
 export const schemaRegisterUser = yup.object().shape({
@@ -18,6 +18,5 @@ export const schemaRegisterUser = yup.object().shape({
     confirmPassword: yup.string()
     .oneOf([yup.ref('password')], 'As senhas devem ser iguais.')
     .required('A confirmação de senha é obrigatória.'),
-    avatar: yup.string()
 });
   
