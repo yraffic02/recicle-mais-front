@@ -2,7 +2,8 @@
 import {
   ReactNode,
   createContext,
-  useContext
+  useContext,
+  useState
 } from "react";
 
 interface IUserProps {
@@ -10,16 +11,24 @@ interface IUserProps {
 }
 
 export interface IUserContext {
-
+  avatar: string,
+  setAvatar: (avatar: string) => void
 }
 
 export const UserContext = createContext<IUserContext | undefined>(undefined);
 
 export function UserProvider({ children }: IUserProps) {
-
+  const [avatar, setAvatar] = useState('')
 
   return (
-    <UserContext.Provider value={''}>
+    <UserContext.Provider 
+      value={
+        {
+          avatar,
+          setAvatar
+        }
+      }
+    >
       {children}
     </UserContext.Provider>
   );
