@@ -4,6 +4,7 @@ import { Button } from "@/components/Button";
 import { Header } from "@/components/Header/index";
 import { Input } from "@/components/Input/index";
 import { Label } from "@/components/Label";
+import axios from "axios";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
 
@@ -19,6 +20,10 @@ export default function Adress() {
 
   const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+    console.log(name, value, "TESTE")
+    if(name === "cep" && value.length === 8) {
+      viaCep(value)
+    }
     setFormValues({ ...formValues, [name]: value });
   };
 
@@ -34,6 +39,18 @@ export default function Adress() {
       setMessage("Preencha todos os campos");
     }
   };
+
+  async function viaCep(cep: string) {
+    const { data } = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+    console.log(data, "DATA")
+
+    setFormValues({
+      cep,
+      endereco: data.logradouro,
+      municipio: data.localidade,
+      estado: data.uf,
+    })
+  } 
 
   return (
     <>

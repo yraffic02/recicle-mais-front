@@ -24,7 +24,7 @@ export default function Congratulations() {
         </h1>
       </div>
       <div>
-        <Link href="/how-to-recycle/collect-point/near-trash">
+        <Link href="/how-to-recycle/collect-point/adress">
           <Button typeButton="primary">Vamos lá!</Button>
         </Link>
       </div>
