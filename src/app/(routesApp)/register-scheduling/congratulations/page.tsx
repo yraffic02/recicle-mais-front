@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { Button } from "@/components/Button";
+import Link from "next/link";
 
 export default function Congratulations() {
   return (
@@ -13,15 +16,17 @@ export default function Congratulations() {
           width={164}
           height={34}
         />
-        <div>
-          <h1 className="text-lg font-bold text-center mb-6">Parabéns!!</h1>
-          <h1 className="text-lg font-bold w-40 text-center">
-            Seu cadastro foi completado com sucesso!
-          </h1>
-        </div>
+      </div>
+      <div className="flex flex-col items-center">
+        <h1 className="text-lg font-bold text-center mb-4">Parabéns!!</h1>
+        <h1 className="text-lg font-bold w-40 text-center">
+          Seu cadastro foi completado com sucesso!
+        </h1>
       </div>
       <div>
-        <Button typeButton="quinary">Vamos lá!</Button>
+        <Link href="/how-to-recycle/collect-point/near-trash">
+          <Button typeButton="primary">Vamos lá!</Button>
+        </Link>
       </div>
     </div>
   );
