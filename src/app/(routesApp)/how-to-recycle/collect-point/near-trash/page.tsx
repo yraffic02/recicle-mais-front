@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 export default function NearTrash() {
   const router = useRouter();
   const [message, setMessage] = useState("");
-  const { handleClickCollectPoint, selectedTrash } = useCollectContext();
+  const { handleClickCollectPoint, selectedTrash, indexSelectedTrash } = useCollectContext();
   const [locality, setLocality] = useState("Rua Costa Barros, Campinas, SP");
 
   const handleClickGoTo = () => {
@@ -51,12 +51,13 @@ export default function NearTrash() {
                 <li
                   key={index}
                   onClick={() =>
-                    handleClickCollectPoint(
+                    handleClickCollectPoint(                      
                       nearTrash.street,
-                      nearTrash.distance
+                      nearTrash.distance,
+                      index
                     )
                   }
-                  className="flex items-center border-b-[1px] gap-3 py-2 cursor-pointer"
+                  className={`flex items-center border-b-[1px] gap-3 py-2 cursor-pointer  ${index === indexSelectedTrash ? "font-bold" : ""}`}
                 >
                   <Image
                     src="/icons/trash.svg"

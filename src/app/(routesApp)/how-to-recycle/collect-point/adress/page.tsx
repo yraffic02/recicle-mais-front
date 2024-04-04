@@ -59,6 +59,12 @@ export default function Adress() {
       formValues.municipio &&
       formValues.estado
     ) {
+      localStorage.setItem("formValues", JSON.stringify({
+        cep: formValues.cep,
+        endereco: formValues.endereco,
+        municipio: formValues.municipio,
+        estado: formValues.estado,
+      }));
       router.push("near-trash");
     } else {
       setMessage("Preencha todos os campos");
