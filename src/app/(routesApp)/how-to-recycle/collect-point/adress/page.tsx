@@ -4,9 +4,10 @@ import { Button } from "@/components/Button";
 import { Header } from "@/components/Header/index";
 import { Input } from "@/components/Input/index";
 import { Label } from "@/components/Label";
-import axios from "axios";
+import viaCep from "@/server/api-viacep";
+import { getItem } from "@/utils/localStorageUtils";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 export default function Adress() {
   const router = useRouter();
@@ -18,13 +19,38 @@ export default function Adress() {
   });
   const [message, setMessage] = useState("");
 
-  const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    console.log(name, value, "TESTE")
-    if(name === "cep" && value.length === 8) {
-      viaCep(value)
+  useEffect(() => {
+    const adressStorageJson = localStorage.getItem("formValues");
+    if (adressStorageJson !== null) {
+      const adressStorage = JSON.parse(adressStorageJson)
+      setFormValues({
+        cep: adressStorage.cep,
+        endereco: adressStorage.endereco,
+        municipio: adressStorage.municipio,
+        estado: adressStorage.estado,
+      });
+      
     }
-    setFormValues({ ...formValues, [name]: value });
+  }, []);
+  console.log(formValues)
+  const handleChangeInput = async (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+
+    if (name === "cep" && value.length === 8) {
+      try {
+        const data = await viaCep(value);
+        setFormValues({
+          cep: value,
+          endereco: data.endereco,
+          municipio: data.municipio,
+          estado: data.estado,
+        });
+      } catch (error) {
+        console.error("Erro ao obter dados do CEP:", error);
+      }
+    } else {
+      setFormValues({ ...formValues, [name]: value });
+    }
   };
 
   const handleSubmit = () => {
@@ -39,18 +65,6 @@ export default function Adress() {
       setMessage("Preencha todos os campos");
     }
   };
-
-  async function viaCep(cep: string) {
-    const { data } = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-    console.log(data, "DATA")
-
-    setFormValues({
-      cep,
-      endereco: data.logradouro,
-      municipio: data.localidade,
-      estado: data.uf,
-    })
-  } 
 
   return (
     <>
