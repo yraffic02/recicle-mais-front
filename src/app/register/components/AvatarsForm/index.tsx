@@ -1,9 +1,15 @@
 import { dataAvatars } from "@/constants/avatarsData"
+import { IUserContext, useUserContext } from "@/context/contextUser";
 import Image from "next/image"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export  const AvatarsForm = () => {
     const [selectedAvatar, setSelectedAvatar] = useState(dataAvatars[0]);
+    const { setAvatar } = useUserContext() as IUserContext;
+
+    useEffect(()=>{
+        setAvatar(selectedAvatar);
+    }, [selectedAvatar])
     
     return(
         <div className="flex flex-col items-center pt-7 gap-8">

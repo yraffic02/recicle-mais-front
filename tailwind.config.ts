@@ -37,6 +37,8 @@ const config: Config = {
         "vermelhoErro": "#A81212",
         "laranjaAtencao": "#F1821B",
         "verdeSucesso": "#7ECB2A",
+        "verdeClaro": "#C8EDC5",
+        "cinzaBackGround": "#F6F6F6",
       },
 
       plugins: [],

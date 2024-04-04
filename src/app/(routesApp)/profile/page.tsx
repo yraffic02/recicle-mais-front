@@ -14,7 +14,7 @@ export default function ProfilePage(){
                 />
             </Header>
             <main className="h-full w-full py-6">
-                <section>
+                <section className="pb-[5rem]">
                     <HeaderProfile />
                 </section>
                 <section className="w-full flex flex-col items-start">

@@ -1,91 +1,52 @@
 "use client";
-
-import { ButtonLogin } from "@/app/opening/components/buttonlogin";
-import { Buttonsm } from "@/app/opening/components/buttonsm";
-import { InputPageLogin } from "@/app/opening/components/inputPageLogin";
-import dynamic from "next/dynamic";
+import { Button } from "@/components/Button";
 import Image from "next/image";
-import Link from "next/link";
+import { FormLogin } from "./components/FormLogin";
 
 
-function LoginPage() {
-  return (
-    <div className="flex h-screen justify-start items-center flex-col gap-6 p-6">
-      <div className="w-full h-full flex flex-col justify-start items-center mb-9 mt-24 ">
-        <Image
-          className="mb-9"
-          src={'/logo/logo.svg'}
-          alt={'logo'}
-          width={115}
-          height={24}
-        />
-        <div className="w-full flex justify-center items-center text-center mb-8">
-          <h1 className="text-title font-workSans font-title leading-7">
-            Quase lá...<br />
-            É hora de login!
-          </h1>
-        </div>
-        <div className="w-full flex justify-center items-center flex-col gap-3 mb-8">
-          <ButtonLogin>
-            <ButtonLogin.Icon>
-              <Image
-                src={'/icons/icone_google.svg'}
-                alt={'google'}
-                width={24}
+export default  function LoginPage() {
+return (
+  <div
+    className="w-full flex flex-col justify-center items-center relative gap-7 media-mx-h"
+    style={{ height: "calc(100vh - 3.5rem)" }}
+  >
+    
+      <Image
+        src='/logo/logo.svg'
+        alt='logo'
+        width={115}
+        height={24}
+      />
+      <div className="w-full flex justify-center items-center flex-col gap-3">
+        <h1 className="text-title font-workSans font-title  text-center mb-2">
+          Quase lá...<br />
+          É hora de login!
+        </h1>
+        <Button
+            typeButton="secondary"
+        >
+            <Image 
+                src='/icons/iconeGoogle.svg'
                 height={24}
-              />
-            </ButtonLogin.Icon>
-            <ButtonLogin.Text>
-              Entrar com Google
-            </ButtonLogin.Text>
-          </ButtonLogin>
-          <ButtonLogin>
-            <ButtonLogin.Icon>
-              <Image
-                src={'/icons/icone_facebook.svg'}
-                alt={'google'}
                 width={24}
+                alt="icone Google"
+            />
+            <p>Cadastrar com Google</p>
+        </Button>
+        <Button
+            typeButton="secondary"
+        >   
+            <Image 
+                src='/icons/iconeFacebook.svg'
                 height={24}
-              />
-            </ButtonLogin.Icon>
-            <ButtonLogin.Text>
-              Entrar com Google
-            </ButtonLogin.Text>
-          </ButtonLogin>
-        </div>
-        <div className="w-full flex flex-col justify-center items-center gap-2">
-          <InputPageLogin
-            label="E-mail"
-            name="email"
-            placeholder="Digite seu e-mail"
-            type="text"
-          />
-          <InputPageLogin
-            label="Senha"
-            name="senha"
-            placeholder="Digite sua senha"
-            type="password"
-          />
-          <div className="w-full flex justify-end items-end mt-3 mb-9">
-            <strong className="text-body font-body font-workSans text leading-6 text-verdeFloresta">
-              Esqueci minha senha
-            </strong>
-          </div>
-        </div>
+                width={24}
+                alt="icone Google"
+            />
+            <p>Cadastrar com Facebook</p>
+        </Button>
       </div>
-
-      <div className="w-full h-full flex flex-col justify-center items-center gap-6">
-        <Buttonsm color="verdeFloresta" size={"full"}>
-          <Buttonsm.Text color="white">
-            Entrar
-          </Buttonsm.Text>
-        </Buttonsm>
-        <span className="text-body font-body font-workSans leading-6 text-black">
-          Não tem conta ? <Link className="text-verdeFloresta cursor-pointer" href="/register">Cadastre-se</Link>
-        </span>
-      </div>
-    </div>
-  )
+      <FormLogin />
+    
+  </div>
+)
 }
-
-export default dynamic(() => Promise.resolve(LoginPage), { ssr: false })
