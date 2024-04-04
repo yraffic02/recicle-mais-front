@@ -14,19 +14,20 @@ export default function FormAdress() {
 
   const handleChangeInput = async (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+    const valueCep = value.replace(/\D/g, "");
   
-    if (name === "cep" && value.length === 8) {
+    if (name === "cep" && valueCep.length === 8) {
       try {
-        const data = await viaCep(value);
+        const data = await viaCep(valueCep);
         setFormValues({
-          cep: value,
+          cep: valueCep,
           endereco: data.endereco,
           municipio: data.municipio,
           estado: data.estado,
         });
 
         localStorage.setItem("formValues", JSON.stringify({
-          cep: value,
+          cep: valueCep,
           endereco: data.endereco,
           municipio: data.municipio,
           estado: data.estado,
@@ -35,11 +36,11 @@ export default function FormAdress() {
         console.error("Erro ao obter dados do CEP:", error);
       }
     } else {
-      setFormValues({ ...formValues, [name]: value });
+      setFormValues({ ...formValues, [name]: valueCep });
 
       localStorage.setItem("formValues", JSON.stringify({
         ...formValues,
-        [name]: value,
+        [name]: valueCep,
       }));
     }
   };

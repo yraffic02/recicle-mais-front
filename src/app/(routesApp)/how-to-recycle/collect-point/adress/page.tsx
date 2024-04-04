@@ -22,17 +22,16 @@ export default function Adress() {
   useEffect(() => {
     const adressStorageJson = localStorage.getItem("formValues");
     if (adressStorageJson !== null) {
-      const adressStorage = JSON.parse(adressStorageJson)
+      const adressStorage = JSON.parse(adressStorageJson);
       setFormValues({
         cep: adressStorage.cep,
         endereco: adressStorage.endereco,
         municipio: adressStorage.municipio,
         estado: adressStorage.estado,
       });
-      
     }
   }, []);
-  console.log(formValues)
+
   const handleChangeInput = async (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
