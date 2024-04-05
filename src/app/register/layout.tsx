@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import Providers from "@/context/provider";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -20,9 +21,9 @@ export default function Layout({
         </h1>
         <div></div>
       </Header>
-      <div>
+      <Providers>
         {children}
-      </div>
+      </Providers>
     </div>
   );
 }

@@ -6,9 +6,47 @@ import Image from "next/image"
 import Link from "next/link"
 import { AvatarsForm } from "../AvatarsForm"
 import { useStep } from "@/hooks/useHookStep"
+import { SubmitHandler, useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import { IUser, schemaRegisterUser } from "@/validation/userShema"
+import { IUserContext, useUserContext } from "@/context/contextUser"
 
 export const FormRegister = () => {
     const {curretStep, handleToAddCurretStep} = useStep({number: 1})
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        mode: "all",
+        reValidateMode: "onChange",
+        resolver: yupResolver(schemaRegisterUser),
+    });
+    const { avatar } = useUserContext() as IUserContext;
+    
+     
+    const onSubmit: SubmitHandler<IUser> = async (data) => {
+        try {
+            const user = {
+                ...data,
+                avatar
+            }
+            console.log(user)
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const handleNextStepForm = () =>{
+        if(     errors.name?.message 
+            || errors.email?.message 
+            || errors.password?.message 
+            || errors.confirmPassword?.message
+        ){
+            return
+        }
+        handleToAddCurretStep()
+    }
 
     return(
         <div className="media-md-h">
@@ -76,22 +114,39 @@ export const FormRegister = () => {
                 </div> 
             }
 
-            <form>
+            <form  onSubmit={handleSubmit(onSubmit)}>
                 {
                     curretStep === 0 &&
                     <section className="flex flex-col items-start gap-2 mb-3 pb-20">
                 
                         <Label labelHtmlFor="name">Nome</Label>
-                        <Input id="name" placeholder="Digite aqui o seu nome" />
-
+                        <Input 
+                            id="name" 
+                            placeholder="Digite aqui o seu nome"
+                            {...register('name')} 
+                        />
+                        <span className="text-[#A81212] text-xs">{errors.name?.message}</span>
                         <Label labelHtmlFor="email">Entrar com outro e-mail</Label>
-                        <Input id="email" placeholder="Digite seu email" />
-
+                        <Input 
+                            id="email" 
+                            placeholder="Digite seu email"
+                            {...register('email')}  
+                        />
+                        <span className="text-[#A81212] text-xs">{errors.email?.message}</span>
                         <Label labelHtmlFor="password">Senha</Label>
-                        <Input id="password" placeholder="Digite uma senha" />
-
+                        <Input 
+                            id="password" 
+                            placeholder="Digite uma senha" 
+                            {...register('password')} 
+                        />
+                        <span className="text-[#A81212] text-xs">{errors.password?.message}</span>
                         <Label labelHtmlFor="confirm">Confirmar senha</Label>
-                        <Input id="confirm" placeholder="Digite novamente sua senha" />
+                        <Input 
+                            id="confirm" 
+                            placeholder="Digite novamente sua senha" 
+                            {...register('confirmPassword')} 
+                        />
+                        <span className="text-[#A81212] text-xs">{errors.confirmPassword?.message}</span>
                     </section>
                 }
 
@@ -112,7 +167,8 @@ export const FormRegister = () => {
                             <input 
                                 type="checkbox" 
                                 id="terms" 
-                                className="h-5 w-5 rounded" 
+                                className="h-5 w-5 rounded"
+
                             />
                             <label 
                                 htmlFor="terms"
@@ -129,7 +185,7 @@ export const FormRegister = () => {
             <div className="flex flex-col items-center justify-center gap-1 bg-white w-full absolute bottom-0">
                 <Button
                     typeButton="primary"
-                    onClick={handleToAddCurretStep}
+                    onClick={handleNextStepForm}
                 >
                     Continuar
                 </Button>

@@ -1,4 +1,3 @@
-import { LoginProvider } from "@/context/contextLogin";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,13 +10,8 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="p-6">
-      <LoginProvider>
-        <div>
-          {children}
-        </div>
-      </LoginProvider>
+    <div className="p-6 h-screen">
+      {children}
     </div>
-
   );
 }
