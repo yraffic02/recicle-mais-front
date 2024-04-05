@@ -29,19 +29,17 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={`${WorkSans.variable}`}>
       {isPublicPage && (
-        <>
-          <p>ROTA PUBLICA</p>
+        <>          
           {children}
         </>
       )}
 
       {!isPublicPage && (
-        <>
-          <p>ROTA PRIVADA</p>
+        <>          
           <PrivateRoute>{children}</PrivateRoute>
         </>
       )}
-          {children}
+          {/* {children} */}
       </body>
     </html>
   );
