@@ -34,12 +34,12 @@ export default function RootLayout({
         </>
       )}
 
-      {!isPublicPage && (
+{/*       {!isPublicPage && (
         <>          
           <PrivateRoute>{children}</PrivateRoute>
         </>
-      )}
-          {/* {children} */}
+      )} */}
+          {children}
       </body>
     </html>
   );

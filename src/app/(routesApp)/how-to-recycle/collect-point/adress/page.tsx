@@ -5,9 +5,9 @@ import { Header } from "@/components/Header/index";
 import { Input } from "@/components/Input/index";
 import { Label } from "@/components/Label";
 import viaCep from "@/server/api-viacep";
-import { getItem } from "@/utils/localStorageUtils";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react";
+import Loading from "@/components/Loading";
 
 export default function Adress() {
   const router = useRouter();
@@ -18,6 +18,7 @@ export default function Adress() {
     estado: "",
   });
   const [message, setMessage] = useState("");
+  const [isLoad, setIsLoad] = useState(false);
 
   useEffect(() => {
     const adressStorageJson = localStorage.getItem("formValues");
@@ -36,6 +37,7 @@ export default function Adress() {
     const { name, value } = event.target;
 
     if (name === "cep" && value.length === 8) {
+      setIsLoad(true)
       try {
         const data = await viaCep(value);
         setFormValues({
@@ -50,6 +52,7 @@ export default function Adress() {
     } else {
       setFormValues({ ...formValues, [name]: value });
     }
+    setIsLoad(false)
   };
 
   const handleSubmit = () => {
@@ -59,12 +62,15 @@ export default function Adress() {
       formValues.municipio &&
       formValues.estado
     ) {
-      localStorage.setItem("formValues", JSON.stringify({
-        cep: formValues.cep,
-        endereco: formValues.endereco,
-        municipio: formValues.municipio,
-        estado: formValues.estado,
-      }));
+      localStorage.setItem(
+        "formValues",
+        JSON.stringify({
+          cep: formValues.cep,
+          endereco: formValues.endereco,
+          municipio: formValues.municipio,
+          estado: formValues.estado,
+        })
+      );
       router.push("near-trash");
     } else {
       setMessage("Preencha todos os campos");
@@ -84,12 +90,15 @@ export default function Adress() {
           </h1>
           <form className="flex flex-col justify-center gap-4">
             <Label labelHtmlFor="text">CEP</Label>
-            <Input
-              placeholder="Digite aqui seu CEP"
-              onChange={handleChangeInput}
-              name="cep"
-              value={formValues.cep}
-            />
+            <div className="relative">
+              <Input
+                placeholder="Digite aqui seu CEP"
+                onChange={handleChangeInput}
+                name="cep"
+                value={formValues.cep}
+              />
+              {isLoad && <Loading />}
+            </div>
             <Label labelHtmlFor="text">Endereço</Label>
             <Input
               placeholder="Digite aqui o seu endereço"

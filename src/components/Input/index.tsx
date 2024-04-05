@@ -1,7 +1,4 @@
-import {
-  InputHTMLAttributes,
-  forwardRef
-} from "react";
+import { InputHTMLAttributes, forwardRef } from "react";
 
 type InputProps = InputHTMLAttributes<HTMLInputElement>;
 
@@ -12,7 +9,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         {...rest}
         name={name}
         ref={ref}
-        className="
+        className="      
           border-cinzaClaroSec 
           text-cinzaEscuro 
           border-[0.06rem] 
@@ -22,7 +19,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           focus:placeholder-black"
       />
     );
-  },
+  }
 );
 
 Input.displayName = "Input";
