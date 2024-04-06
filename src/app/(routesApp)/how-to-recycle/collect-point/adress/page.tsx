@@ -4,8 +4,10 @@ import { Button } from "@/components/Button";
 import { Header } from "@/components/Header/index";
 import { Input } from "@/components/Input/index";
 import { Label } from "@/components/Label";
+import viaCep from "@/server/api-viacep";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
+import Loading from "@/components/Loading";
 
 export default function Adress() {
   const router = useRouter();
@@ -16,10 +18,41 @@ export default function Adress() {
     estado: "",
   });
   const [message, setMessage] = useState("");
+  const [isLoad, setIsLoad] = useState(false);
 
-  const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    const adressStorageJson = localStorage.getItem("formValues");
+    if (adressStorageJson !== null) {
+      const adressStorage = JSON.parse(adressStorageJson);
+      setFormValues({
+        cep: adressStorage.cep,
+        endereco: adressStorage.endereco,
+        municipio: adressStorage.municipio,
+        estado: adressStorage.estado,
+      });
+    }
+  }, []);
+
+  const handleChangeInput = async (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setFormValues({ ...formValues, [name]: value });
+
+    if (name === "cep" && value.length === 8) {
+      setIsLoad(true)
+      try {
+        const data = await viaCep(value);
+        setFormValues({
+          cep: value,
+          endereco: data.endereco,
+          municipio: data.municipio,
+          estado: data.estado,
+        });
+      } catch (error) {
+        console.error("Erro ao obter dados do CEP:", error);
+      }
+    } else {
+      setFormValues({ ...formValues, [name]: value });
+    }
+    setIsLoad(false)
   };
 
   const handleSubmit = () => {
@@ -29,6 +62,15 @@ export default function Adress() {
       formValues.municipio &&
       formValues.estado
     ) {
+      localStorage.setItem(
+        "formValues",
+        JSON.stringify({
+          cep: formValues.cep,
+          endereco: formValues.endereco,
+          municipio: formValues.municipio,
+          estado: formValues.estado,
+        })
+      );
       router.push("near-trash");
     } else {
       setMessage("Preencha todos os campos");
@@ -48,12 +90,15 @@ export default function Adress() {
           </h1>
           <form className="flex flex-col justify-center gap-4">
             <Label labelHtmlFor="text">CEP</Label>
-            <Input
-              placeholder="Digite aqui seu CEP"
-              onChange={handleChangeInput}
-              name="cep"
-              value={formValues.cep}
-            />
+            <div className="relative">
+              <Input
+                placeholder="Digite aqui seu CEP"
+                onChange={handleChangeInput}
+                name="cep"
+                value={formValues.cep}
+              />
+              {isLoad && <Loading />}
+            </div>
             <Label labelHtmlFor="text">Endereço</Label>
             <Input
               placeholder="Digite aqui o seu endereço"
