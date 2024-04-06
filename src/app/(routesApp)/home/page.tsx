@@ -18,7 +18,7 @@ export default function  HomePage () {
                 <Link href='/menu'>
                     <MenuIcon />
                 </Link>
-                <h1 className="text-base font-medium">Título Página</h1>
+                <h1 className="text-base font-medium">Página Inicial</h1>
                 <Avatar />
             </Header>
             <main className="py-6 h-full flex flex-col items-center justify-around">
