@@ -16,6 +16,7 @@ export const Output = forwardRef<HTMLOutputElement, OutputProps>(
           border-[1px]
           rounded-[32px]
           pl-4
+          pr-4
             text-black
             w-full
             h-12

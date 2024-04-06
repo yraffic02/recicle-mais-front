@@ -11,7 +11,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { IUser, schemaRegisterUser } from "@/validation/userShema"
 import { IUserContext, useUserContext } from "@/context/contextUser"
 
-export const FormRegister = () =>{
+export const FormRegister = () => {
     const {curretStep, handleToAddCurretStep} = useStep({number: 1})
     const {
         register,
