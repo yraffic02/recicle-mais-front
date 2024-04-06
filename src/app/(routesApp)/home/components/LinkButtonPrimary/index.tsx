@@ -3,32 +3,45 @@ import { ReactNode } from "react"
 
 export type LinkButtonTypeHome = {
     hRef: string,
-    children: ReactNode
+    children: ReactNode,
+    name: string
 }
 
 
-export const LinkButtonPrimary = ({hRef, children}: LinkButtonTypeHome) =>{
+export const LinkButtonPrimary = ({hRef, children, name}: LinkButtonTypeHome) =>{
     return(
-        <Link
-            href={hRef}
-            className="
-                bg-offWihte 
-                p-7
-                w-[9.68rem]
-                rounded-tl-[1.25rem]
-                rounded-tr-[1.125rem]
-                rounded-br-[1.1875rem]
-                rounded-bl-[0.9375rem]
-                "
-        >
+        <Link href={hRef}>
             <div
                 className="
                 flex 
                 flex-col 
                 items-center 
-                justify-between"
+                justify-between
+                bg-verdeFloresta 
+                w-[9.68rem]
+                h-[13rem]
+                rounded-tl-[1.25rem]
+                rounded-tr-[1.125rem]
+                rounded-br-[1.1875rem]
+                rounded-bl-[0.9375rem]"
             >
-                {children}
+                <div className="flex flex-col items-center justify-center h-full">
+                    {children}
+                </div>
+                <span 
+                className="
+                    text-center 
+                    text-base 
+                    font-medium
+                    bg-white 
+                    w-full 
+                    rounded-br-[1.1875rem] 
+                    rounded-bl-[0.9375rem] 
+                    p-1
+                    shadow-md"
+                >
+                    {name}
+                </span>
             </div>
         </Link>
     )
