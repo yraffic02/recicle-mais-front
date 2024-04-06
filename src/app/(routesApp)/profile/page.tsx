@@ -4,7 +4,7 @@ import { SecondaryHeaderButton } from "@/components/Header/components/ButtonActi
 import { Input } from "@/components/Input";
 import { Label } from "@/components/Label";
 import Link from "next/link";
-import { HeaderProfile } from "../profile/components/HeaderProfile";
+import { HeaderProfile } from "../menu/components/HeaderProfile";
 
 export default function EditePage() {
   return (
