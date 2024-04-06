@@ -1,6 +1,4 @@
-'use client'
-import Link from "next/link"
-import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { ReactNode } from "react";
 
 type ButtonType = 'primary' | 'secondary';
@@ -18,10 +16,6 @@ export const ButtonFooter = ({
     name, 
     typeButton
 }: ButtonFooter) =>{
-    const path = usePathname()
-
-    const textColor = path === hRef ? "text-verdeFloresta" : "text-black";
-    
     if(typeButton === "primary"){
         return(
             <Link
@@ -36,7 +30,7 @@ export const ButtonFooter = ({
                     justify-between"
                 >
                     {children}
-                    <p className={`text-xs font-medium ${textColor}`}>
+                    <p className={`text-xs font-medium`}>
                         {name}
                     </p>
                 </div>

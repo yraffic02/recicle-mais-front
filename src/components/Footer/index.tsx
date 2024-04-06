@@ -2,6 +2,7 @@
 import Image from "next/image"
 import { ButtonFooter } from "./components/ButtonFooter"
 import { usePathname } from "next/navigation"
+import { BarChartBig, Home, Plus, Search, UserCircle } from "lucide-react"
 
 export const Footer = () =>{
     const path = usePathname()
@@ -14,43 +15,25 @@ export const Footer = () =>{
         <footer className="h-[75px] w-screen px-6">
             <div className="flex items-center justify-between w-full">
                 <ButtonFooter hRef="/home" name="Inicio" typeButton="primary">
-                    <Image 
-                        src='/icons/start.svg'
-                        height={24}
-                        width={24}
-                        alt="inicio"
+                    <Home 
+                        size={24} 
+                        fill='green'
                     />
                 </ButtonFooter>
                 <ButtonFooter hRef="#" name="Pesquisar" typeButton="primary">
-                    <Image 
-                        src='/icons/search.svg'
-                        height={24}
-                        width={24}
-                        alt="inicio"
+                    <Search 
+                        size={24}
                     />
                 </ButtonFooter>
                 <ButtonFooter hRef="#" typeButton="secondary">
-                    <Image 
-                        src='/icons/add.svg'
-                        height={24}
-                        width={24}
-                        alt="inicio"
-                    />
+                    <Plus size={24} color="white"/>
                 </ButtonFooter>
                 <ButtonFooter hRef="#" name="Dados" typeButton="primary">
-                    <Image 
-                        src='/icons/data.svg'
-                        height={24}
-                        width={24}
-                        alt="inicio"
-                    />
+                    <BarChartBig size={24} />
                 </ButtonFooter>
                 <ButtonFooter hRef="/profile" name="Perfil" typeButton="primary">
-                    <Image 
-                        src='/icons/profileOtlined.svg'
-                        height={24}
-                        width={24}
-                        alt="inicio"
+                    <UserCircle 
+                        size={24}
                     />
                 </ButtonFooter>
             </div>

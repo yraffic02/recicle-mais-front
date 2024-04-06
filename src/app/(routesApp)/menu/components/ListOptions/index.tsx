@@ -6,7 +6,7 @@ export const ListOptions = () =>{
             <Options 
                 icon="profile"
                 name="Minha Conta"
-                hRef="/edite"
+                hRef="/profile"
             />
             <Options 
                 icon="notificationFilled"
