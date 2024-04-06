@@ -26,7 +26,7 @@ export const Footer = () =>{
                     />
                 </ButtonFooter>
                 <ButtonFooter hRef="#" typeButton="secondary">
-                    <Plus size={24}/>
+                    <Plus size={24} color="white"/>
                 </ButtonFooter>
                 <ButtonFooter hRef="#" name="Dados" typeButton="primary">
                     <BarChartBig size={24} />
