@@ -4,6 +4,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { LinkButtonPrimary } from "./components/LinkButtonPrimary";
 import { LinkButtonSecondary } from "./components/LinkButtonSecondary";
+import Link from "next/link";
+import { MenuIcon } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "Home",
@@ -13,7 +15,9 @@ export default function  HomePage () {
     return(
         <>
             <Header>
-                <div></div>
+                <Link href='/menu'>
+                    <MenuIcon />
+                </Link>
                 <h1 className="text-base font-medium">Título Página</h1>
                 <Avatar />
             </Header>
