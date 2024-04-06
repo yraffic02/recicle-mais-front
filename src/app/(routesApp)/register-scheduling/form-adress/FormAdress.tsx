@@ -4,6 +4,7 @@ import Loading from "@/components/Loading";
 import viaCep from "@/server/api-viacep";
 import { useState } from "react";
 import { ChangeEvent } from "react";
+import Image from "next/image";
 
 export default function FormAdress() {
   const [formValues, setFormValues] = useState({
@@ -13,10 +14,17 @@ export default function FormAdress() {
     estado: "",
   });
   const [isLoad, setIsLoad] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+  const [isNotChecked, setIsNotChecked] = useState(false);
 
   const handleChangeInput = async (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     const valueCep = value.replace(/\D/g, "");
+
+    if (name === "cep" && value.length < 8) {
+      setIsNotChecked(false);
+      setIsChecked(false);
+    }
 
     if (name === "cep" && valueCep.length === 8) {
       setIsLoad(true);
@@ -28,6 +36,12 @@ export default function FormAdress() {
           municipio: data.municipio,
           estado: data.estado,
         });
+
+        if (!data.endereco) {
+          setIsNotChecked(true);
+        } else {
+          setIsChecked(true);
+        }
 
         localStorage.setItem(
           "formValues",
@@ -51,14 +65,14 @@ export default function FormAdress() {
           [name]: valueCep,
         })
       );
-      setIsLoad(false)
     }
+    setIsLoad(false);
   };
 
   return (
     <form className="flex flex-col items-start h-[48vh] overflow-y-auto gap-3 pb-6">
       <Label labelHtmlFor="text">CEP</Label>
-      <div className="relative">
+      <div className="relative w-full">
         <Input
           placeholder="Digite aqui seu CEP"
           onChange={handleChangeInput}
@@ -66,28 +80,106 @@ export default function FormAdress() {
           value={formValues.cep}
         />
         {isLoad && <Loading />}
+        {isNotChecked && (
+          <Image
+            className="absolute right-6 top-[13px]"
+            src="/icons/not-checked.svg"
+            height={24}
+            width={24}
+            alt="como reciclar"
+          />
+        )}
+        {isChecked && (
+          <Image
+            className="absolute right-6 top-[13px]"
+            src="/icons/checked.svg"
+            height={24}
+            width={24}
+            alt="como reciclar"
+          />
+        )}
       </div>
       <Label labelHtmlFor="text">Endereço</Label>
-      <Input
-        placeholder="Digite aqui o seu endereço"
-        onChange={handleChangeInput}
-        name="endereco"
-        value={formValues.endereco}
-      />
+      <div className="relative w-full">
+        <Input
+          placeholder="Digite aqui o seu endereço"
+          onChange={handleChangeInput}
+          name="endereco"
+          value={formValues.endereco}
+        />
+        {isNotChecked && (
+          <Image
+            className="absolute right-6 top-[13px]"
+            src="/icons/not-checked.svg"
+            height={24}
+            width={24}
+            alt="como reciclar"
+          />
+        )}
+        {isChecked && (
+          <Image
+            className="absolute right-6 top-[13px]"
+            src="/icons/checked.svg"
+            height={24}
+            width={24}
+            alt="como reciclar"
+          />
+        )}
+      </div>
       <Label labelHtmlFor="text">Município</Label>
-      <Input
-        placeholder="Digite aqui o nome da sua cidade"
-        onChange={handleChangeInput}
-        name="municipio"
-        value={formValues.municipio}
-      />
+      <div className="relative w-full">
+        <Input
+          placeholder="Digite aqui o nome da sua cidade"
+          onChange={handleChangeInput}
+          name="municipio"
+          value={formValues.municipio}
+        />
+        {isNotChecked && (
+          <Image
+            className="absolute right-6 top-[13px]"
+            src="/icons/not-checked.svg"
+            height={24}
+            width={24}
+            alt="como reciclar"
+          />
+        )}
+        {isChecked && (
+          <Image
+            className="absolute right-6 top-[13px]"
+            src="/icons/checked.svg"
+            height={24}
+            width={24}
+            alt="como reciclar"
+          />
+        )}
+      </div>
       <Label labelHtmlFor="text">Estado</Label>
-      <Input
-        placeholder="Digite aqui o Estado onde mora"
-        onChange={handleChangeInput}
-        name="estado"
-        value={formValues.estado}
-      />
+      <div className="relative w-full">
+        <Input
+          placeholder="Digite aqui o Estado onde mora"
+          onChange={handleChangeInput}
+          name="estado"
+          value={formValues.estado}
+        />
+        {isNotChecked && (
+          <Image
+            className="absolute right-6 top-[13px]"
+            src="/icons/not-checked.svg"
+            height={24}
+            width={24}
+            alt="como reciclar"
+          />
+        )}
+        {isChecked && (
+          <Image
+            className="absolute right-6 top-[13px]"
+            src="/icons/checked.svg"
+            height={24}
+            width={24}
+            alt="como reciclar"
+          />
+        )}
+      </div>
     </form>
   );
 }
