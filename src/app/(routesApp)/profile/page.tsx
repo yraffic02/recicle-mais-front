@@ -43,7 +43,7 @@ export default function EditePage() {
                 Deseja alterar sua senha?
               </span>
               <Link 
-                href="/edite/editePassword" 
+                href="/profile/editePassword" 
                 className="font-title text-body text-verdeFloresta underline"
               >
                 Clique aqui!
