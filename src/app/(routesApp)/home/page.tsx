@@ -38,7 +38,7 @@ export default function  HomePage () {
                 </section>
                 <section className="flex items-center w-full gap-3">
                     <LinkButtonPrimary
-                        hRef="#"
+                        hRef="/how-to-recycle"
                         name="Reciclar"
                     >
                         <Image 
