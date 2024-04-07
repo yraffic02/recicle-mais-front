@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Avatar } from "@/components/Avatar";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header/index";
@@ -7,9 +7,21 @@ import { useState } from "react";
 
 export default function HowFind() {
   const [selectedOption, setSelectedOption] = useState("");
+  const [adressStorage, setAdressStorage] = useState("");
+  const [error, setError] = useState("");
 
   const handleClickSelectedOption = (option: string) => {
-    setSelectedOption(option);
+    if (option === "myAdress") {
+      const adress = localStorage.getItem("formValues");
+      if (!adress) {
+        setError("Não há email cadastrado.");
+      } else {
+        setSelectedOption("adress");
+        console.log(adress, "ADRESS");
+      }
+    } else {
+      setSelectedOption(option);
+    }
   };
 
   return (
@@ -44,8 +56,15 @@ export default function HowFind() {
           >
             Usar meu endereço cadastrado
           </Button>
+          <div className="flex mt-2 font-workSans justify-center text-[14px] font-bold">
+            <p>{`Não possui endereço cadastrado?  .`}</p>
+            <a href="/register-scheduling" className="text-verdeFloresta">
+              Clique aqui
+            </a>
+          </div>
         </main>
         <div className="flex flex-col justify-between">
+          {error && <span className="text-vermelhoErro text-center mb-2">{error}</span>}
           <Link href={selectedOption}>
             <Button typeButton="quinary">Continuar</Button>
           </Link>
