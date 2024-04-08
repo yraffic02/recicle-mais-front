@@ -96,7 +96,7 @@ export default function Adress() {
       <div className="h-screen flex flex-col justify-between w-full">
         <Header>
           <h1 className="text-base font-medium">Reciclar</h1>
-          <Avatar />
+          <Avatar typeAvatar="sm" />
         </Header>
         <main style={{ height: "calc(100vh - 200px" }}>
           <h1 className="font-workSans font-title text-xl leading-6 mt-2 mb-7">

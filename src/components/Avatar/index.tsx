@@ -1,11 +1,17 @@
 import Image from "next/image"
 
-export const Avatar = ()=>{
+type avatarType = 'sm' | 'lg';
+
+interface IAvatar {
+    typeAvatar: avatarType;
+}
+
+export const Avatar = ({ typeAvatar }: IAvatar)=>{
     return(
         <Image 
             src='/avatar/avatar-profile01.svg'
-            height={32}
-            width={32}
+            height={typeAvatar === 'sm' ? 32 : 248}
+            width={typeAvatar === 'sm' ? 32 : 248}
             alt="avart"
         />
     )
