@@ -8,7 +8,7 @@ import { useState } from "react";
 
 export default function CollectPoint() {
   const router = useRouter();
-  const { handleClickTypeTrashSelected, selectedTypeTrash } =
+  const { handleClickTypeTrashSelected, selectedTypeTrash, selectedButton } =
     useCollectContext();
   const [message, setMessage] = useState("");
 
@@ -70,7 +70,10 @@ export default function CollectPoint() {
               {message}
             </span>
           )}
-          <Button onClick={() => handleClickGoToHowFind()} typeButton="quinary">
+          <Button
+            onClick={() => handleClickGoToHowFind()}
+            typeButton={selectedButton ? "primary" : "quinary"}
+          >
             Continuar
           </Button>
         </div>

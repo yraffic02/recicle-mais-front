@@ -11,6 +11,7 @@ export function CollectProvider({ children }: { children: React.ReactNode }) {
   const [selectedTrash, setSelectedTrash] = useState<string>("");
   const [selectedTypeTrash, setSelectedTypeTrash] = useState<string>("");
   const [indexSelectedTrash, setIndexSelectedTrash] = useState<number>();
+  const [selectedButton, setSelectedButton] = useState(false);
 
   const handleClickCollectPoint = (
     street: string,
@@ -23,6 +24,7 @@ export function CollectProvider({ children }: { children: React.ReactNode }) {
 
   const handleClickTypeTrashSelected = (TypeTrash: string) => {
     setSelectedTypeTrash(TypeTrash);
+    setSelectedButton(true);
   };
 
   const value = {
@@ -31,6 +33,7 @@ export function CollectProvider({ children }: { children: React.ReactNode }) {
     handleClickTypeTrashSelected,
     selectedTypeTrash,
     indexSelectedTrash,
+    selectedButton
   };
 
   return (
