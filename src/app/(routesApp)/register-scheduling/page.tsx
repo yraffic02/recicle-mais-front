@@ -1,14 +1,13 @@
 "use client";
 
 import { Avatar } from "@/components/Avatar";
-import { Header } from "@/components/Header/index";
-import Image from "next/image";
 import { Button } from "@/components/Button";
-import FormContact from "./form-contact/FormContact";
-import FormAdress from "./form-adress/FormAdress";
+import { Header } from "@/components/Header/index";
 import { useStep } from "@/hooks/useHookStep";
+import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import FormAdress from "./form-adress/FormAdress";
+import FormContact from "./form-contact/FormContact";
 
 export default function RegisterScheduling() {
   const { curretStep, handleToAddCurretStep } = useStep({ number: 1 });
