@@ -19,7 +19,7 @@ export default function CollectPoint() {
       setMessage("Selecione um tipo de lixo.");
     }
   };
-
+  console.log(selectedTypeTrash,"SELECT")
   return (
     <>
       <div className="h-screen flex flex-col justify-between w-full">

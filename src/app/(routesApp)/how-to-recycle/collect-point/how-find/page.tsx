@@ -14,6 +14,7 @@ export default function HowFind() {
       const adress = localStorage.getItem("formValues");
       if (!adress) {
         setError("Não há email cadastrado.");
+        setSelectedOption("")
       } else {
         setSelectedOption("adress");
       }
@@ -62,9 +63,13 @@ export default function HowFind() {
           </div>
         </main>
         <div className="flex flex-col justify-between">
-          {error && <span className="text-vermelhoErro text-center mb-2">{error}</span>}
+          {error && (
+            <span className="text-vermelhoErro text-center mb-2">{error}</span>
+          )}
           <Link href={selectedOption}>
-            <Button typeButton={selectedOption ? "primary" : "quinary"}>Continuar</Button>
+            <Button typeButton={selectedOption ? "primary" : "quinary"}>
+              Continuar
+            </Button>
           </Link>
         </div>
       </div>
