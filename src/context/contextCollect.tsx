@@ -19,12 +19,11 @@ export function CollectProvider({ children }: { children: React.ReactNode }) {
     index: number
   ) => {
     setSelectedTrash(`${street}, ${distance}`);
-    setIndexSelectedTrash(index)
+    setIndexSelectedTrash(index);
   };
 
   const handleClickTypeTrashSelected = (TypeTrash: string) => {
     setSelectedTypeTrash(TypeTrash);
-    setSelectedButton(true);
   };
 
   const value = {
@@ -33,7 +32,6 @@ export function CollectProvider({ children }: { children: React.ReactNode }) {
     handleClickTypeTrashSelected,
     selectedTypeTrash,
     indexSelectedTrash,
-    selectedButton
   };
 
   return (
