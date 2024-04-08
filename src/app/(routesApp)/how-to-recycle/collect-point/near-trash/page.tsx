@@ -77,7 +77,7 @@ export default function NearTrash() {
               {message}
             </span>
           )}
-          <Button onClick={() => handleClickGoTo()} typeButton="quinary">
+          <Button onClick={() => handleClickGoTo()} typeButton={selectedTrash ? "primary" : "quinary"}>
             Continuar
           </Button>
         </div>

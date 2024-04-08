@@ -19,7 +19,7 @@ export default function CollectPoint() {
       setMessage("Selecione um tipo de lixo.");
     }
   };
-
+  console.log(selectedTypeTrash,"SELECT")
   return (
     <>
       <div className="h-screen flex flex-col justify-between w-full">
@@ -70,7 +70,10 @@ export default function CollectPoint() {
               {message}
             </span>
           )}
-          <Button onClick={() => handleClickGoToHowFind()} typeButton="quinary">
+          <Button
+            onClick={() => handleClickGoToHowFind()}
+            typeButton={selectedTypeTrash ? "primary" : "quinary"}
+          >
             Continuar
           </Button>
         </div>

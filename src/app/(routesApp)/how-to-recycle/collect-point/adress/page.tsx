@@ -22,6 +22,7 @@ export default function Adress() {
   const [isLoad, setIsLoad] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [isNotChecked, setIsNotChecked] = useState(false);
+  const [typeButtonClass, setTypeButtonClass] = useState(false);
 
   useEffect(() => {
     const adressStorageJson = localStorage.getItem("formValues");
@@ -33,9 +34,10 @@ export default function Adress() {
         municipio: adressStorage.municipio,
         estado: adressStorage.estado,
       });
+      setTypeButtonClass(true)
     }
   }, []);
-
+  
   const handleChangeInput = async (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
@@ -59,6 +61,7 @@ export default function Adress() {
           setIsNotChecked(true);
         } else {
           setIsChecked(true);
+          setTypeButtonClass(true)
         }
       } catch (error) {
         console.error("Erro ao obter dados do CEP:", error);
@@ -193,7 +196,7 @@ export default function Adress() {
               {message}
             </span>
           )}
-          <Button onClick={() => handleSubmit()} typeButton="quinary">
+          <Button onClick={() => handleSubmit()} typeButton={typeButtonClass ? "primary" : "quinary"}>
             Continuar
           </Button>
         </div>

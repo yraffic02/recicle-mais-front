@@ -7,17 +7,16 @@ import { useState } from "react";
 
 export default function HowFind() {
   const [selectedOption, setSelectedOption] = useState("");
-  const [adressStorage, setAdressStorage] = useState("");
   const [error, setError] = useState("");
 
   const handleClickSelectedOption = (option: string) => {
-    if (option === "myAdress") {
-      const adress = localStorage.getItem("formValues");
-      if (!adress) {
-        setError("Não há email cadastrado.");
+    if (option === "my-adress") {
+      const adressStorage = localStorage.getItem("formValues");
+      if (adressStorage) {
+        setSelectedOption("my-adress");
       } else {
-        setSelectedOption("adress");
-        console.log(adress, "ADRESS");
+        setError("Não há email cadastrado.");
+        setSelectedOption("");
       }
     } else {
       setSelectedOption(option);
@@ -51,8 +50,8 @@ export default function HowFind() {
           </div>
           <h1 className="m-4 text-center">Ou</h1>
           <Button
-            onClick={() => handleClickSelectedOption("myAdress")}
-            typeButton="quinary"
+            onClick={() => handleClickSelectedOption("my-adress")}
+            typeButton={selectedOption === "my-adress" ? "primary" : "quinary"}
           >
             Usar meu endereço cadastrado
           </Button>
@@ -64,9 +63,13 @@ export default function HowFind() {
           </div>
         </main>
         <div className="flex flex-col justify-between">
-          {error && <span className="text-vermelhoErro text-center mb-2">{error}</span>}
-          <Link href={selectedOption}>
-            <Button typeButton="quinary">Continuar</Button>
+          {error && (
+            <span className="text-vermelhoErro text-center mb-2">{error}</span>
+          )}
+          <Link href={selectedOption === "my-adress" ? "adress" : selectedOption}>
+            <Button typeButton={selectedOption ? "primary" : "quinary"}>
+              Continuar
+            </Button>
           </Link>
         </div>
       </div>
