@@ -10,7 +10,7 @@ export default function HowToRecycle() {
       <div className="h-screen flex flex-col justify-between w-full">
         <Header>
           <h1 className="text-base font-medium">Reciclar</h1>
-          <Avatar />
+          <Avatar typeAvatar="sm"/>
         </Header>
         <main>
           <h1 className="font-workSans font-title text-xl leading-6 mb-[9vh] ">

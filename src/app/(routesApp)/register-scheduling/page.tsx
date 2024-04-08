@@ -17,7 +17,7 @@ export default function RegisterScheduling() {
       <div className="h-full">
         <Header>
           <h1 className="text-base font-medium">Cadastro</h1>
-          <Avatar />
+          <Avatar typeAvatar="sm"/>
         </Header>
         <main>
           <h2 className="font-semibold text-cinzaEscuro mt-6 mb-6">

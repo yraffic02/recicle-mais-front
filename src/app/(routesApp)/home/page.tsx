@@ -19,7 +19,7 @@ export default function  HomePage () {
                     <MenuIcon />
                 </Link>
                 <h1 className="text-base font-medium">Página Inicial</h1>
-                <Avatar />
+                <Avatar typeAvatar='sm'/>
             </Header>
             <main className="py-6 h-full flex flex-col items-center justify-around">
                 <section className="flex items-center w-full">

@@ -28,7 +28,14 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${WorkSans.variable}`}>
-      {isPublicPage && (
+          {children}
+      </body>
+    </html>
+  );
+}
+
+/* 
+  {isPublicPage && (
         <>          
           {children}
         </>
@@ -38,9 +45,6 @@ export default function RootLayout({
         <>          
           <PrivateRoute>{children}</PrivateRoute>
         </>
-      )} */}
-          {children}
-      </body>
-    </html>
-  );
-}
+      )} *
+
+*/
