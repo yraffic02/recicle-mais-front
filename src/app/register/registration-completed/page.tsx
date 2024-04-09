@@ -9,12 +9,12 @@ export default function PageCompleted(){
         >
             <h1 className="text-xl font-semibold">Parabéns!!</h1>
             <Avatar typeAvatar="lg"/>
-            <h1 className="text-xl font-semibold">Sua conta foi criada com sucesso!</h1>
-            <Button
-                typeButton="primary"
-            >
-                Vamos lá!
-            </Button>
+            <h1 
+                className="text-xl font-semibold">Sua conta foi criada com sucesso!
+            </h1>
+            <Link href="/opening/login">
+                <Button typeButton="primary">Vamos lá!</Button>
+            </Link>
         </main>
     )
 }
