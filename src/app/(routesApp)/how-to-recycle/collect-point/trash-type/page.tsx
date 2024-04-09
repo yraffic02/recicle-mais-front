@@ -19,13 +19,13 @@ export default function CollectPoint() {
       setMessage("Selecione um tipo de lixo.");
     }
   };
-
+  console.log(selectedTypeTrash,"SELECT")
   return (
     <>
       <div className="h-screen flex flex-col justify-between w-full">
         <Header>
           <h1 className="text-base font-medium">Reciclar</h1>
-          <Avatar />
+          <Avatar typeAvatar="sm" />
         </Header>
         <main style={{ height: "calc(100vh - 200px)" }}>
           <h1 className="font-workSans font-title text-xl leading-6 mb-9">
@@ -70,7 +70,10 @@ export default function CollectPoint() {
               {message}
             </span>
           )}
-          <Button onClick={() => handleClickGoToHowFind()} typeButton="quinary">
+          <Button
+            onClick={() => handleClickGoToHowFind()}
+            typeButton={selectedTypeTrash ? "primary" : "quinary"}
+          >
             Continuar
           </Button>
         </div>

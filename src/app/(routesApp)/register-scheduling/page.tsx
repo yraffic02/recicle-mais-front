@@ -1,23 +1,28 @@
 "use client";
 
 import { Avatar } from "@/components/Avatar";
-import { Header } from "@/components/Header/index";
-import Image from "next/image";
 import { Button } from "@/components/Button";
-import FormContact from "./form-contact/FormContact";
-import FormAdress from "./form-adress/FormAdress";
+import { Header } from "@/components/Header/index";
 import { useStep } from "@/hooks/useHookStep";
-import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import FormAdress from "./form-adress/FormAdress";
+import FormContact from "./form-contact/FormContact";
 
 export default function RegisterScheduling() {
   const { curretStep, handleToAddCurretStep } = useStep({ number: 1 });
+  const router = useRouter();
+
+  const handleClickGoTo = () => {
+    router.push("register-scheduling/congratulations")
+  }
 
   return (
     <div className="h-screen flex flex-col justify-between w-full">
       <div className="h-full">
         <Header>
           <h1 className="text-base font-medium">Cadastro</h1>
-          <Avatar />
+          <Avatar typeAvatar="sm"/>
         </Header>
         <main>
           <h2 className="font-semibold text-cinzaEscuro mt-6 mb-6">
@@ -80,9 +85,9 @@ export default function RegisterScheduling() {
         </Button>
       )}
       {curretStep === 1 && (
-        <Link href="register-scheduling/congratulations">
-          <Button typeButton="quinary">Continuar</Button>
-        </Link>
+
+          <Button typeButton={"quinary"} onClick={handleClickGoTo}>Continuar</Button>
+
       )}
     </div>
   );

@@ -18,7 +18,7 @@ export function CollectProvider({ children }: { children: React.ReactNode }) {
     index: number
   ) => {
     setSelectedTrash(`${street}, ${distance}`);
-    setIndexSelectedTrash(index)
+    setIndexSelectedTrash(index);
   };
 
   const handleClickTypeTrashSelected = (TypeTrash: string) => {

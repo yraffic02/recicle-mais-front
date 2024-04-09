@@ -2,22 +2,31 @@
 import { Avatar } from "@/components/Avatar";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header/index";
-import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function HowFind() {
+  const router = useRouter();
+
+  const handleClickGoTo = () => {
+    if (selectedOption === "my-adress") {
+      router.push("adress");
+    } else {
+      router.push(selectedOption);
+    }
+  };
+
   const [selectedOption, setSelectedOption] = useState("");
-  const [adressStorage, setAdressStorage] = useState("");
   const [error, setError] = useState("");
 
   const handleClickSelectedOption = (option: string) => {
-    if (option === "myAdress") {
-      const adress = localStorage.getItem("formValues");
-      if (!adress) {
-        setError("Não há email cadastrado.");
+    if (option === "my-adress") {
+      const adressStorage = localStorage.getItem("formValues");
+      if (adressStorage) {
+        setSelectedOption("my-adress");
       } else {
-        setSelectedOption("adress");
-        console.log(adress, "ADRESS");
+        setError("Não há email cadastrado.");
+        setSelectedOption("");
       }
     } else {
       setSelectedOption(option);
@@ -29,7 +38,7 @@ export default function HowFind() {
       <div className="h-screen flex flex-col justify-between w-full">
         <Header>
           <h1 className="text-base font-medium">Reciclar</h1>
-          <Avatar />
+          <Avatar typeAvatar="sm" />
         </Header>
         <main style={{ height: "calc(100vh - 200px)" }}>
           <h1 className="font-workSans font-title text-xl leading-6 mb-9">
@@ -51,8 +60,8 @@ export default function HowFind() {
           </div>
           <h1 className="m-4 text-center">Ou</h1>
           <Button
-            onClick={() => handleClickSelectedOption("myAdress")}
-            typeButton="quinary"
+            onClick={() => handleClickSelectedOption("my-adress")}
+            typeButton={selectedOption === "my-adress" ? "primary" : "quinary"}
           >
             Usar meu endereço cadastrado
           </Button>
@@ -64,10 +73,16 @@ export default function HowFind() {
           </div>
         </main>
         <div className="flex flex-col justify-between">
-          {error && <span className="text-vermelhoErro text-center mb-2">{error}</span>}
-          <Link href={selectedOption}>
-            <Button typeButton="quinary">Continuar</Button>
-          </Link>
+          {error && (
+            <span className="text-vermelhoErro text-center mb-2">{error}</span>
+          )}
+
+          <Button
+            typeButton={selectedOption ? "primary" : "quinary"}
+            onClick={handleClickGoTo}
+          >
+            Continuar
+          </Button>
         </div>
       </div>
     </>

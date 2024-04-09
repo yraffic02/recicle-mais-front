@@ -2,9 +2,15 @@
 
 import Image from "next/image";
 import { Button } from "@/components/Button";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Congratulations() {
+  const router = useRouter();
+
+  const handleClickGoTo = () => {
+    router.push("/how-to-recycle/collect-point/adress");
+  };
+
   return (
     <div className="flex flex-col justify-between h-full">
       <div></div>
@@ -24,9 +30,9 @@ export default function Congratulations() {
         </h1>
       </div>
       <div>
-        <Link href="/how-to-recycle/collect-point/adress">
-          <Button typeButton="primary">Vamos lá!</Button>
-        </Link>
+        <Button typeButton="primary" onClick={handleClickGoTo}>
+          Vamos lá!
+        </Button>
       </div>
     </div>
   );
