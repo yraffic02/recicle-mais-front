@@ -10,7 +10,7 @@ interface IAvatar {
 export const Avatar = ({ typeAvatar }: IAvatar) => {
     return (
         <Image
-            src={`/avatar/${avatar}`}
+            src="/avatar/avatar-profile01.svg"
             height={typeAvatar === 'sm' ? 32 : 248}
             width={typeAvatar === 'sm' ? 32 : 248}
             alt="avart"
