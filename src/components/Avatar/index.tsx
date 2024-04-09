@@ -8,10 +8,6 @@ interface IAvatar {
 }
 
 export const Avatar = ({ typeAvatar }: IAvatar) => {
-
-    const token = getItem("token") as string;
-    const decoded: IAvatarProps = jwtDecode(token);
-    const avatar = decoded.avatar;
     return (
         <Image
             src="/avatar/avatar-profile01.svg"
