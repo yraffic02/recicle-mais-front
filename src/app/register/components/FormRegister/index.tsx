@@ -43,7 +43,11 @@ export const FormRegister = () => {
         state: "vazio"
 
       })
-      console.log(response)
+      console.log((await response).status, "RESPONSE")
+      if ((await response).status === 201 ) {
+        router.push("register/registration-completed");
+      }
+      
 
       if ((await response).status === 201 ) {
         router.push("register/registration-completed");

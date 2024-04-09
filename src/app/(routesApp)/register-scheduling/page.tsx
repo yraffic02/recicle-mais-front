@@ -5,12 +5,17 @@ import { Button } from "@/components/Button";
 import { Header } from "@/components/Header/index";
 import { useStep } from "@/hooks/useHookStep";
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import FormAdress from "./form-adress/FormAdress";
 import FormContact from "./form-contact/FormContact";
 
 export default function RegisterScheduling() {
   const { curretStep, handleToAddCurretStep } = useStep({ number: 1 });
+  const router = useRouter();
+
+  const handleClickGoTo = () => {
+    router.push("register-scheduling/congratulations")
+  }
 
   return (
     <div className="h-screen flex flex-col justify-between w-full">
@@ -80,9 +85,9 @@ export default function RegisterScheduling() {
         </Button>
       )}
       {curretStep === 1 && (
-        <Link href="register-scheduling/congratulations">
-          <Button typeButton={"quinary"}>Continuar</Button>
-        </Link>
+
+          <Button typeButton={"quinary"} onClick={handleClickGoTo}>Continuar</Button>
+
       )}
     </div>
   );
