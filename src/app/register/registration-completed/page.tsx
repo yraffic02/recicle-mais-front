@@ -8,7 +8,7 @@ export default function PageCompleted(){
             style={{ height: "calc(100vh - 5.5rem)" }}
         >
             <h1 className="text-xl font-semibold">Parabéns!!</h1>
-            <Avatar />
+            <Avatar typeAvatar="lg"/>
             <h1 className="text-xl font-semibold">Sua conta foi criada com sucesso!</h1>
             <Button
                 typeButton="primary"

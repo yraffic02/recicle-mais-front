@@ -26,7 +26,7 @@ export const Button = ({children, typeButton, ...props}: ButtonProps) =>{
                 ${typeButton === "secondary" ? "hover:text-white" : ""}
                 ${typeButton === "tertiary" ? "bg-verdeClaro text-verdeFloresta hover:bg-verdeFloresta hover:text-brancoAbsoluto" : ""}
                 ${typeButton === "quaternary" ? "bg-brancoAbsoluto hover:bg-verdeClaro hover:text-verdeFloresta" : ""}
-                ${typeButton === "quinary" ? "text-cinzaClaro hover:text-white hover:bg-verdeFloresta" : ""}
+                ${typeButton === "quinary" ? "text-cinzaClaro hover:bg-cinzaClaroSec" : ""}
                 font-medium 
                 text-base`
             }
