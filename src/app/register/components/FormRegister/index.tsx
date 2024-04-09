@@ -205,7 +205,7 @@ export const FormRegister = () => {
           <div className="flex items-center justify-center gap-1">
             <p className="font-semibold">Já possui uma conta?</p>
             <Link
-              href='/opening/login'
+              href='register/registration-completed'
               className="font-semibold text-verdeFloresta  underline hover:underline"
             >
               Entrar
