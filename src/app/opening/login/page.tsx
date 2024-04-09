@@ -4,13 +4,13 @@ import Image from "next/image";
 import { FormLogin } from "./components/FormLogin";
 
 
-export default  function LoginPage() {
-return (
-  <div
-    className="w-full flex flex-col justify-center items-center relative gap-7 media-mx-h"
-    style={{ height: "calc(100vh - 3.5rem)" }}
-  >
-    
+export default function LoginPage() {
+  return (
+    <div
+      className="w-full flex flex-col justify-center items-center relative gap-7 media-mx-h"
+      style={{ height: "calc(100vh - 3.5rem)" }}
+    >
+
       <Image
         src='/logo/logo.svg'
         alt='logo'
@@ -23,30 +23,30 @@ return (
           É hora de login!
         </h1>
         <Button
-            typeButton="secondary"
+          typeButton="secondary"
         >
-            <Image 
-                src='/icons/iconeGoogle.svg'
-                height={24}
-                width={24}
-                alt="icone Google"
-            />
-            <p>Cadastrar com Google</p>
+          <Image
+            src='/icons/iconeGoogle.svg'
+            height={24}
+            width={24}
+            alt="icone Google"
+          />
+          <p>Cadastrar com Google</p>
         </Button>
         <Button
-            typeButton="secondary"
-        >   
-            <Image 
-                src='/icons/iconeFacebook.svg'
-                height={24}
-                width={24}
-                alt="icone Google"
-            />
-            <p>Cadastrar com Facebook</p>
+          typeButton="secondary"
+        >
+          <Image
+            src='/icons/iconeFacebook.svg'
+            height={24}
+            width={24}
+            alt="icone Google"
+          />
+          <p>Cadastrar com Facebook</p>
         </Button>
       </div>
       <FormLogin />
-    
-  </div>
-)
+
+    </div>
+  )
 }

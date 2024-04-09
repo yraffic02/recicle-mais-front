@@ -13,19 +13,21 @@ interface ILoginProps {
 export interface ILoginContext {
   currentPage: string;
   setCurrentPage: (currentPage: string) => void;
+  texto: string;
 }
 
-export const UserContext = createContext<ILoginContext | undefined>(undefined);
+export const LoginContext = createContext<ILoginContext>({} as ILoginContext);
 
 export function LoginProvider({ children }: ILoginProps) {
 
   let [currentPage, setCurrentPage] = useState<string>("page1");
+  const texto = "teste";
 
   return (
-    <UserContext.Provider value={{ setCurrentPage, currentPage }}>
+    <LoginContext.Provider value={{ setCurrentPage, texto, currentPage }}>
       {children}
-    </UserContext.Provider>
+    </LoginContext.Provider>
   );
 }
 
-export const useLoginContext = () => useContext(UserContext);
+export const useLoginContext = () => useContext(LoginContext);
