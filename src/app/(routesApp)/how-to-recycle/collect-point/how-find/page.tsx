@@ -2,10 +2,20 @@
 import { Avatar } from "@/components/Avatar";
 import { Button } from "@/components/Button";
 import { Header } from "@/components/Header/index";
-import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function HowFind() {
+  const router = useRouter();
+
+  const handleClickGoTo = () => {
+    if (selectedOption === "my-adress") {
+      router.push("adress");
+    } else {
+      router.push(selectedOption);
+    }
+  };
+
   const [selectedOption, setSelectedOption] = useState("");
   const [error, setError] = useState("");
 
@@ -66,11 +76,13 @@ export default function HowFind() {
           {error && (
             <span className="text-vermelhoErro text-center mb-2">{error}</span>
           )}
-          <Link href={selectedOption === "my-adress" ? "adress" : selectedOption}>
-            <Button typeButton={selectedOption ? "primary" : "quinary"}>
-              Continuar
-            </Button>
-          </Link>
+
+          <Button
+            typeButton={selectedOption ? "primary" : "quinary"}
+            onClick={handleClickGoTo}
+          >
+            Continuar
+          </Button>
         </div>
       </div>
     </>
