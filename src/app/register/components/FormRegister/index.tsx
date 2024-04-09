@@ -11,6 +11,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { AvatarsForm } from "../AvatarsForm"
+import { useRouter } from "next/navigation"
 
 export const FormRegister = () => {
   const { curretStep, handleToAddCurretStep } = useStep({ number: 1 })
@@ -25,7 +26,7 @@ export const FormRegister = () => {
     resolver: yupResolver(schemaRegisterUser),
   });
   const { avatar } = useUserContext() as IUserContext;
-
+  const router = useRouter();
 
   const onSubmit: SubmitHandler<IUser> = async () => {
     try {
@@ -43,6 +44,10 @@ export const FormRegister = () => {
 
       })
       console.log(response)
+
+      if ((await response).status === 201 ) {
+        router.push("register/registration-completed");
+      }
 
     } catch (error) {
       console.error(error);
