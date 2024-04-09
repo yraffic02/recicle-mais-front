@@ -11,8 +11,13 @@ interface IAvatarProps {
     user_type: string;
     avatar: string;
 }
+type avatarType = 'sm' | 'lg';
 
-export const Avatar = () => {
+interface IAvatar {
+    typeAvatar: avatarType;
+}
+
+export const Avatar = ({ typeAvatar }: IAvatar) => {
 
     const token = getItem("token") as string;
     const decoded: IAvatarProps = jwtDecode(token);
@@ -20,8 +25,8 @@ export const Avatar = () => {
     return (
         <Image
             src={`/avatar/${avatar}`}
-            height={32}
-            width={32}
+            height={typeAvatar === 'sm' ? 32 : 248}
+            width={typeAvatar === 'sm' ? 32 : 248}
             alt="avart"
         />
     )
