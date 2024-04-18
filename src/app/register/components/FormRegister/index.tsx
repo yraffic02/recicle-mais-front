@@ -158,6 +158,7 @@ export const FormRegister = () => {
             <Input
               id="password"
               placeholder="Digite uma senha"
+              type="password"
               {...register('password')}
             />
             <span className="text-[#A81212] text-xs">{errors.password?.message}</span>
@@ -165,6 +166,7 @@ export const FormRegister = () => {
             <Input
               id="confirm"
               placeholder="Digite novamente sua senha"
+              type="password"
               {...register('confirmPassword')}
             />
             <span className="text-[#A81212] text-xs">{errors.confirmPassword?.message}</span>
