@@ -27,19 +27,20 @@ export const FormLogin = () => {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    try {
+    router.push('/home')
+    /* try {
       const repsonse = await api.post('/login', {
         email: formLogin.email,
         password: formLogin.password
       }
       )
       setItem('token', repsonse.data.token)
-      router.push('/home')
+      
       console.log(repsonse.data.token)
     } catch (error) {
       console.log(error)
 
-    }
+    } */
   }
 
   return (
